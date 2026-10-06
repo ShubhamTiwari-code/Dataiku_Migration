@@ -1,0 +1,3787 @@
+{
+  "step": "PASO_6_MODEL_STRATEGY_DECISION",
+  "timestamp": "2026-06-09T17:19:45.683468",
+  "configuration": {
+    "model_type": "random_forest",
+    "test_size": 0.2,
+    "alpha": 0.05,
+    "countries": [
+      "argentina",
+      "brazil",
+      "mexico",
+      "colombia",
+      "costa_rica",
+      "chile",
+      "canada",
+      "dominican_republic",
+      "guatemala",
+      "honduras",
+      "nicaragua",
+      "panama",
+      "el_salvador",
+      "germany",
+      "turkey",
+      "italy",
+      "spain",
+      "france",
+      "switzerland",
+      "russia",
+      "finland",
+      "greece",
+      "netherlands",
+      "poland",
+      "saudi_arabia",
+      "south_africa",
+      "bahrain",
+      "algeria",
+      "iraq",
+      "kuwait",
+      "qatar",
+      "kenya",
+      "hong_kong",
+      "australia",
+      "indonesia",
+      "india",
+      "south_korea",
+      "malaysia",
+      "pakistan",
+      "philippines",
+      "singapore",
+      "thailand",
+      "taiwan",
+      "vietnam"
+    ],
+    "overmerge_threshold": null,
+    "overmerge_routing_ratio": 0.0,
+    "fp_penalty": 1.0,
+    "calibrate": false,
+    "fn_tolerance": 1.0
+  },
+  "decision": {
+    "by_country": {
+      "argentina": {
+        "decision": "CUSTOM",
+        "rationale": "CUSTOM significantly outperforms GLOBAL (F1: 0.7665 vs 0.3262). GLOBAL collapsed (TN=1). Routing corrected 2026-06-12. NOTE: step-6 evaluation was on original 6942-row labeled dataset; full dataset expanded to 35285 pairs and final model was retrained on that.",
+        "f1_global": 0.32616079020219446,
+        "f1_custom": 0.7665383105226898,
+        "delta_f1": 0.4403775203204954,
+        "p_value": 0.6103932717046019,
+        "n_total": 35285,
+        "n_total_step6_eval": 6942,
+        "test_n": 1388,
+        "confusion_matrix": {
+          "global": {
+            "TP": 683,
+            "TN": 1,
+            "FP": 704,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 481,
+            "TN": 584,
+            "FP": 154,
+            "FN": 170
+          },
+          "hybrid": {
+            "TP": 665,
+            "TN": 79,
+            "FP": 644,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": 0.18188,
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.62,
+          "threshold_review": 0.6,
+          "fp_rate_at_opt": 0.013035,
+          "fn_rate_at_opt": 0.187518,
+          "fp_rate_baseline": 0.507205,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 57.41,
+          "n_samples": 1388,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T11:49:38.547692",
+          "prev_threshold_merge": 0.62
+        },
+        "threshold_review": {
+          "value": 0.6
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-07-09T14:44:41.415977",
+            "n_samples": 35285,
+            "n_features_total": 250,
+            "n_apmu_features": 37,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.86713,
+            "auc": 0.91851,
+            "om_rate": 0.17414,
+            "delta_f1_vs_base": 0.05058,
+            "delta_om_vs_base": -0.05587,
+            "cv_results": {
+              "base": {
+                "auc": 0.87346,
+                "f1": 0.81655,
+                "om_rate": 0.23001,
+                "fn_rate": 0.19463
+              },
+              "base+apmu": {
+                "auc": 0.89313,
+                "f1": 0.82275,
+                "om_rate": 0.18962,
+                "fn_rate": 0.20476
+              },
+              "base+nf": {
+                "auc": 0.90879,
+                "f1": 0.85861,
+                "om_rate": 0.18168,
+                "fn_rate": 0.14837
+              },
+              "base+apmu+nf": {
+                "auc": 0.91851,
+                "f1": 0.86713,
+                "om_rate": 0.17414,
+                "fn_rate": 0.13765
+              }
+            }
+          }
+        },
+        "feature_config": "base+nf",
+        "f1_final": 0.8584,
+        "auc_final": 0.90889,
+        "nf_adopted": true
+      },
+      "brazil": {
+        "decision": "CUSTOM",
+        "rationale": "CUSTOM F1=0.9640 vs GLOBAL F1=0.9419. Routing corrected 2026-06-12.",
+        "f1_global": 0.9418592953353602,
+        "f1_custom": 0.9639989428743624,
+        "delta_f1": 0.022139647539002216,
+        "p_value": 0.0,
+        "n_total": 88108,
+        "test_n": 17621,
+        "confusion_matrix": {
+          "global": {
+            "TP": 2828,
+            "TN": 13762,
+            "FP": 579,
+            "FN": 453
+          },
+          "custom": {
+            "TP": 3018,
+            "TN": 13956,
+            "FP": 507,
+            "FN": 141
+          },
+          "hybrid": {
+            "TP": 2908,
+            "TN": 13755,
+            "FP": 563,
+            "FN": 396
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.032857,
+          "custom": 0.028771,
+          "hybrid": 0.031949,
+          "assigned": 0.04911
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.55,
+          "threshold_review": 0.55,
+          "fp_rate_at_opt": 0.010051,
+          "fn_rate_at_opt": 0.00148,
+          "fp_rate_baseline": 0.032857,
+          "fn_rate_baseline": 0.025707,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 13.91,
+          "n_samples": 17622,
+          "review_rate_at_opt": 0.0214,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T11:49:38.548200",
+          "prev_threshold_merge": 0.55
+        },
+        "threshold_review": {
+          "value": 0.55
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-07-09T14:44:41.415977",
+            "n_samples": 88108,
+            "n_features_total": 250,
+            "n_apmu_features": 38,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.89486,
+            "auc": 0.99304,
+            "om_rate": 0.04911,
+            "delta_f1_vs_base": 0.00781,
+            "delta_om_vs_base": -0.00145,
+            "cv_results": {
+              "base": {
+                "auc": 0.98999,
+                "f1": 0.88705,
+                "om_rate": 0.05056,
+                "fn_rate": 0.01849
+              },
+              "base+apmu": {
+                "auc": 0.9927,
+                "f1": 0.89404,
+                "om_rate": 0.04938,
+                "fn_rate": 0.00886
+              },
+              "base+nf": {
+                "auc": 0.99119,
+                "f1": 0.88318,
+                "om_rate": 0.05346,
+                "fn_rate": 0.01564
+              },
+              "base+apmu+nf": {
+                "auc": 0.99304,
+                "f1": 0.89486,
+                "om_rate": 0.04911,
+                "fn_rate": 0.00823
+              }
+            }
+          }
+        }
+      },
+      "mexico": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 21.4% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.6282678287669624,
+        "f1_custom": 0.8420589674332138,
+        "delta_f1": 0.21379113866625143,
+        "p_value": 3.8906378979734815e-154,
+        "n_total": 56525,
+        "test_n": 11305,
+        "confusion_matrix": {
+          "global": {
+            "TP": 7570,
+            "TN": 485,
+            "FP": 3230,
+            "FN": 20
+          },
+          "custom": {
+            "TP": 7307,
+            "TN": 2293,
+            "FP": 1336,
+            "FN": 369
+          },
+          "hybrid": {
+            "TP": 7673,
+            "TN": 578,
+            "FP": 3031,
+            "FN": 23
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.285714,
+          "custom": 0.118178,
+          "hybrid": 0.268111,
+          "assigned": 0.19258
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.63,
+          "threshold_review": 0.6,
+          "fp_rate_at_opt": 0.002848,
+          "fn_rate_at_opt": 0.205578,
+          "fp_rate_baseline": 0.118178,
+          "fn_rate_baseline": 0.03264,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 70.73,
+          "n_samples": 11305,
+          "review_rate_at_opt": 0.0218,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T11:49:38.547692",
+          "prev_threshold_merge": 0.63
+        },
+        "threshold_review": {
+          "value": 0.6
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-07-09T14:44:41.415977",
+            "n_samples": 56525,
+            "n_features_total": 195,
+            "n_apmu_features": 35,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.88028,
+            "auc": 0.91865,
+            "om_rate": 0.19258,
+            "delta_f1_vs_base": 0.01609,
+            "delta_om_vs_base": 0.00105,
+            "cv_results": {
+              "base": {
+                "auc": 0.90597,
+                "f1": 0.86419,
+                "om_rate": 0.19153,
+                "fn_rate": 0.17026
+              },
+              "base+apmu": {
+                "auc": 0.91253,
+                "f1": 0.87033,
+                "om_rate": 0.19517,
+                "fn_rate": 0.15849
+              },
+              "base+nf": {
+                "auc": 0.91374,
+                "f1": 0.87393,
+                "om_rate": 0.18757,
+                "fn_rate": 0.1551
+              },
+              "base+apmu+nf": {
+                "auc": 0.91865,
+                "f1": 0.88028,
+                "om_rate": 0.19258,
+                "fn_rate": 0.14228
+              }
+            }
+          }
+        }
+      },
+      "colombia": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 6.7% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8604087318027714,
+        "f1_custom": 0.9274271076474118,
+        "delta_f1": 0.06701837584464032,
+        "p_value": 5.0903627180684545e-83,
+        "n_total": 12273,
+        "test_n": 2454,
+        "confusion_matrix": {
+          "global": {
+            "TP": 1907,
+            "TN": 247,
+            "FP": 287,
+            "FN": 14
+          },
+          "custom": {
+            "TP": 1885,
+            "TN": 398,
+            "FP": 132,
+            "FN": 40
+          },
+          "hybrid": {
+            "TP": 1838,
+            "TN": 426,
+            "FP": 145,
+            "FN": 46
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.116904,
+          "custom": 0.053768,
+          "hybrid": 0.059063,
+          "assigned": 0.09215
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.59,
+          "threshold_review": 0.55,
+          "fp_rate_at_opt": 0.000359,
+          "fn_rate_at_opt": 0.08078,
+          "fp_rate_baseline": 0.053768,
+          "fn_rate_baseline": 0.016293,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 57.14,
+          "n_samples": 2455,
+          "review_rate_at_opt": 0.0212,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T11:49:38.547692",
+          "prev_threshold_merge": 0.59
+        },
+        "threshold_review": {
+          "value": 0.55
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-07-09T14:44:41.415977",
+            "n_samples": 12273,
+            "n_features_total": 549,
+            "n_apmu_features": 35,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.9582,
+            "auc": 0.97855,
+            "om_rate": 0.09215,
+            "delta_f1_vs_base": 0.02288,
+            "delta_om_vs_base": -0.00264,
+            "cv_results": {
+              "base": {
+                "auc": 0.96986,
+                "f1": 0.93532,
+                "om_rate": 0.09479,
+                "fn_rate": 0.0986
+              },
+              "base+apmu": {
+                "auc": 0.97599,
+                "f1": 0.94726,
+                "om_rate": 0.08912,
+                "fn_rate": 0.07813
+              },
+              "base+nf": {
+                "auc": 0.97477,
+                "f1": 0.94668,
+                "om_rate": 0.08799,
+                "fn_rate": 0.07948
+              },
+              "base+apmu+nf": {
+                "auc": 0.97855,
+                "f1": 0.9582,
+                "om_rate": 0.09215,
+                "fn_rate": 0.05694
+              }
+            }
+          }
+        }
+      },
+      "costa_rica": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=0.7%, p=0.248), global es mÃ¡s simple",
+        "f1_global": 0.9849277638583769,
+        "f1_custom": 0.991547165829941,
+        "delta_f1": 0.006619401971564076,
+        "p_value": 0.24821307898992026,
+        "n_total": 8446,
+        "test_n": 1689,
+        "confusion_matrix": {
+          "global": {
+            "TP": 1672,
+            "TN": 0,
+            "FP": 17,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 1677,
+            "TN": 2,
+            "FP": 10,
+            "FN": 1
+          },
+          "hybrid": {
+            "TP": 1682,
+            "TN": 0,
+            "FP": 7,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.010065,
+          "custom": 0.005917,
+          "hybrid": 0.004144,
+          "assigned": 0.4918
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.71,
+          "threshold_review": 0.71,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.001188,
+          "fp_rate_baseline": 0.010065,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 1689,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:00:35.872469",
+          "prev_threshold_merge": 0.71
+        },
+        "threshold_review": {
+          "value": 0.71
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 8446,
+            "n_features_total": 123,
+            "n_apmu_features": 32,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.99786,
+            "auc": 0.98328,
+            "om_rate": 0.4918,
+            "delta_f1_vs_base": 0.00637,
+            "delta_om_vs_base": -0.06558,
+            "cv_results": {
+              "base": {
+                "auc": 0.9539,
+                "f1": 0.99149,
+                "om_rate": 0.55738,
+                "fn_rate": 0.01288
+              },
+              "base+apmu": {
+                "auc": 0.98786,
+                "f1": 0.99654,
+                "om_rate": 0.54098,
+                "fn_rate": 0.00298
+              },
+              "base+nf": {
+                "auc": 0.96941,
+                "f1": 0.9978,
+                "om_rate": 0.52459,
+                "fn_rate": 0.0006
+              },
+              "base+apmu+nf": {
+                "auc": 0.98328,
+                "f1": 0.99786,
+                "om_rate": 0.4918,
+                "fn_rate": 0.00072
+              }
+            }
+          }
+        }
+      },
+      "chile": {
+        "decision": "CUSTOM",
+        "rationale": "CUSTOM F1=0.9629 vs GLOBAL F1=0.8573 (test n=124, underpowered but clear advantage). Routing corrected 2026-06-12.",
+        "f1_global": 0.8572990705303445,
+        "f1_custom": 0.9629355742296919,
+        "delta_f1": 0.1056365036993474,
+        "p_value": 0.13361440253771584,
+        "n_total": 621,
+        "test_n": 124,
+        "confusion_matrix": {
+          "global": {
+            "TP": 112,
+            "TN": 0,
+            "FP": 12,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 117,
+            "TN": 4,
+            "FP": 4,
+            "FN": 0
+          },
+          "hybrid": {
+            "TP": 115,
+            "TN": 0,
+            "FP": 9,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.096774,
+          "custom": 0.032,
+          "hybrid": 0.072581,
+          "assigned": 0.25
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.52,
+          "threshold_review": 0.52,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.0,
+          "fp_rate_baseline": 0.096774,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 124,
+          "review_rate_at_opt": 0.0323,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:00:35.869748",
+          "prev_threshold_merge": 0.52
+        },
+        "threshold_review": {
+          "value": 0.52
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-24T03:22:08.959088",
+            "n_samples": 621,
+            "n_features_total": 157,
+            "n_apmu_features": 34,
+            "n_nf_features": 0,
+            "best_config": "base+apmu",
+            "f1": 0.98888,
+            "auc": 0.99189,
+            "om_rate": 0.25,
+            "delta_f1_vs_base": 0.01302,
+            "delta_om_vs_base": -0.075,
+            "cv_results": {
+              "base": {
+                "auc": 0.97304,
+                "f1": 0.97586,
+                "om_rate": 0.325,
+                "fn_rate": 0.02582
+              },
+              "base+apmu": {
+                "auc": 0.99189,
+                "f1": 0.98888,
+                "om_rate": 0.25,
+                "fn_rate": 0.00516
+              },
+              "base+nf": {
+                "auc": 0.97672,
+                "f1": 0.97952,
+                "om_rate": 0.425,
+                "fn_rate": 0.01205
+              },
+              "base+apmu+nf": {
+                "auc": 0.99187,
+                "f1": 0.98719,
+                "om_rate": 0.3,
+                "fn_rate": 0.00516
+              }
+            }
+          }
+        }
+      },
+      "canada": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=1.6%, p=0.000), global es mÃ¡s simple",
+        "f1_global": 0.968367144837733,
+        "f1_custom": 0.984155127772149,
+        "delta_f1": 0.015787982934415967,
+        "p_value": 0.0,
+        "n_total": 943,
+        "test_n": 188,
+        "confusion_matrix": {
+          "global": {
+            "TP": 185,
+            "TN": 0,
+            "FP": 4,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 187,
+            "TN": 0,
+            "FP": 2,
+            "FN": 0
+          },
+          "hybrid": {
+            "TP": 185,
+            "TN": 0,
+            "FP": 4,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.021164,
+          "custom": 0.010582,
+          "hybrid": 0.021164,
+          "assigned": 0.83333
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.82,
+          "threshold_review": 0.8,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.834218,
+          "fp_rate_baseline": 0.005305,
+          "fn_rate_baseline": 0.423077,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 100.0,
+          "n_samples": 189,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.599278",
+          "prev_threshold_merge": 0.82
+        },
+        "threshold_review": {
+          "value": 0.8
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 943,
+            "n_features_base": 89,
+            "n_features_nf": 13,
+            "n_features_total": 102,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.99518,
+            "f1_nf": 0.99466,
+            "f1_best": 0.99466,
+            "auc_best": 0.98443,
+            "om_best": 0.83333,
+            "delta_f1": -0.00052,
+            "delta_om": 0.16666
+          }
+        }
+      },
+      "dominican_republic": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 18.0% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.7977473103363235,
+        "f1_custom": 0.9776853165613085,
+        "delta_f1": 0.17993800622498501,
+        "p_value": 3.930183832438828e-24,
+        "n_total": 7919,
+        "test_n": 1583,
+        "confusion_matrix": {
+          "global": {
+            "TP": 1365,
+            "TN": 0,
+            "FP": 219,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 1336,
+            "TN": 213,
+            "FP": 23,
+            "FN": 12
+          },
+          "hybrid": {
+            "TP": 1341,
+            "TN": 39,
+            "FP": 204,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.138258,
+          "custom": 0.01452,
+          "hybrid": 0.128788,
+          "assigned": 0.0508
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.73,
+          "threshold_review": 0.73,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.014727,
+          "fp_rate_baseline": 0.01452,
+          "fn_rate_baseline": 0.007576,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 1584,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:00:35.869748",
+          "prev_threshold_merge": 0.73
+        },
+        "threshold_review": {
+          "value": 0.73
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 7919,
+            "n_features_total": 124,
+            "n_apmu_features": 32,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.98967,
+            "auc": 0.99615,
+            "om_rate": 0.0508,
+            "delta_f1_vs_base": 0.00272,
+            "delta_om_vs_base": -0.02625,
+            "cv_results": {
+              "base": {
+                "auc": 0.99306,
+                "f1": 0.98695,
+                "om_rate": 0.07705,
+                "fn_rate": 0.01262
+              },
+              "base+apmu": {
+                "auc": 0.99574,
+                "f1": 0.98797,
+                "om_rate": 0.06266,
+                "fn_rate": 0.01306
+              },
+              "base+nf": {
+                "auc": 0.99406,
+                "f1": 0.98909,
+                "om_rate": 0.05927,
+                "fn_rate": 0.01143
+              },
+              "base+apmu+nf": {
+                "auc": 0.99615,
+                "f1": 0.98967,
+                "om_rate": 0.0508,
+                "fn_rate": 0.01172
+              }
+            }
+          }
+        }
+      },
+      "guatemala": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 6.6% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8693769415063264,
+        "f1_custom": 0.9352679321662242,
+        "delta_f1": 0.06589099065989779,
+        "p_value": 2.4552054959280352e-219,
+        "n_total": 18028,
+        "test_n": 3605,
+        "confusion_matrix": {
+          "global": {
+            "TP": 1753,
+            "TN": 1388,
+            "FP": 461,
+            "FN": 4
+          },
+          "custom": {
+            "TP": 1749,
+            "TN": 1624,
+            "FP": 211,
+            "FN": 22
+          },
+          "hybrid": {
+            "TP": 1722,
+            "TN": 1508,
+            "FP": 357,
+            "FN": 19
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.127842,
+          "custom": 0.058514,
+          "hybrid": 0.099002,
+          "assigned": 0.07119
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.67,
+          "threshold_review": 0.54,
+          "fp_rate_at_opt": 0.001518,
+          "fn_rate_at_opt": 0.081689,
+          "fp_rate_baseline": 0.058514,
+          "fn_rate_baseline": 0.006101,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 56.0,
+          "n_samples": 3606,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:00:35.872268",
+          "prev_threshold_merge": 0.67
+        },
+        "threshold_review": {
+          "value": 0.54
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 18028,
+            "n_features_total": 149,
+            "n_apmu_features": 33,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.93914,
+            "auc": 0.99172,
+            "om_rate": 0.07119,
+            "delta_f1_vs_base": 0.00026,
+            "delta_om_vs_base": -0.03183,
+            "cv_results": {
+              "base": {
+                "auc": 0.99036,
+                "f1": 0.93888,
+                "om_rate": 0.10302,
+                "fn_rate": 0.02078
+              },
+              "base+apmu": {
+                "auc": 0.99113,
+                "f1": 0.93822,
+                "om_rate": 0.08198,
+                "fn_rate": 0.04133
+              },
+              "base+nf": {
+                "auc": 0.9907,
+                "f1": 0.93876,
+                "om_rate": 0.10487,
+                "fn_rate": 0.01931
+              },
+              "base+apmu+nf": {
+                "auc": 0.99172,
+                "f1": 0.93914,
+                "om_rate": 0.07119,
+                "fn_rate": 0.04946
+              }
+            }
+          }
+        }
+      },
+      "honduras": {
+        "decision": "EVALUATE",
+        "rationale": "Beneficio marginal 3.6% - evaluar costo vs accuracy trade-off",
+        "f1_global": 0.9364986458928514,
+        "f1_custom": 0.9722998118509063,
+        "delta_f1": 0.03580116595805494,
+        "p_value": 0.0032834609860690426,
+        "n_total": 2347,
+        "test_n": 469,
+        "confusion_matrix": {
+          "global": {
+            "TP": 449,
+            "TN": 0,
+            "FP": 20,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 447,
+            "TN": 11,
+            "FP": 9,
+            "FN": 3
+          },
+          "hybrid": {
+            "TP": 449,
+            "TN": 0,
+            "FP": 20,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.042644,
+          "custom": 0.019149,
+          "hybrid": 0.042644,
+          "assigned": 0.26
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.72,
+          "threshold_review": 0.66,
+          "fp_rate_at_opt": 0.00586,
+          "fn_rate_at_opt": 0.113479,
+          "fp_rate_baseline": 0.011188,
+          "fn_rate_baseline": 0.058071,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 47.62,
+          "n_samples": 469,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.72
+        },
+        "threshold_review": {
+          "value": 0.66
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 2347,
+            "n_features_total": 82,
+            "n_apmu_features": 0,
+            "n_nf_features": 13,
+            "best_config": "base+nf",
+            "f1": 0.99023,
+            "auc": 0.97701,
+            "om_rate": 0.26,
+            "delta_f1_vs_base": 0.00244,
+            "delta_om_vs_base": -0.06,
+            "cv_results": {
+              "base": {
+                "auc": 0.97268,
+                "f1": 0.98779,
+                "om_rate": 0.32,
+                "fn_rate": 0.01024
+              },
+              "base+nf": {
+                "auc": 0.97701,
+                "f1": 0.99023,
+                "om_rate": 0.26,
+                "fn_rate": 0.00801
+              }
+            }
+          }
+        }
+      },
+      "nicaragua": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=2.8%, p=0.074), global es mÃ¡s simple",
+        "f1_global": 0.9684858154077496,
+        "f1_custom": 0.996853346841354,
+        "delta_f1": 0.028367531433604376,
+        "p_value": 0.07363827012030257,
+        "n_total": 1660,
+        "test_n": 332,
+        "confusion_matrix": {
+          "global": {
+            "TP": 325,
+            "TN": 0,
+            "FP": 7,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 326,
+            "TN": 5,
+            "FP": 1,
+            "FN": 0
+          },
+          "hybrid": {
+            "TP": 327,
+            "TN": 0,
+            "FP": 5,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.021084,
+          "custom": 0.003012,
+          "hybrid": 0.01506,
+          "assigned": 0.21429
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.53,
+          "threshold_review": 0.52,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.729669,
+          "fp_rate_baseline": 0.0,
+          "fn_rate_baseline": 0.46009,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 332,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.900471",
+          "prev_threshold_merge": 0.81
+        },
+        "threshold_review": {
+          "value": 0.52
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 1660,
+            "n_features_total": 81,
+            "n_apmu_features": 0,
+            "n_nf_features": 0,
+            "best_config": "base",
+            "f1": 0.99755,
+            "auc": 0.95715,
+            "om_rate": 0.21429,
+            "delta_f1_vs_base": 0.0,
+            "delta_om_vs_base": 0.0,
+            "cv_results": {
+              "base": {
+                "auc": 0.95715,
+                "f1": 0.99755,
+                "om_rate": 0.21429,
+                "fn_rate": 0.00123
+              },
+              "base+nf": {
+                "auc": 0.9962,
+                "f1": 0.99725,
+                "om_rate": 0.21429,
+                "fn_rate": 0.00184
+              }
+            }
+          }
+        }
+      },
+      "panama": {
+        "decision": "EVALUATE",
+        "rationale": "Beneficio marginal 3.7% - evaluar costo vs accuracy trade-off",
+        "f1_global": 0.9398312852767599,
+        "f1_custom": 0.9771760806400349,
+        "delta_f1": 0.03734479536327506,
+        "p_value": 3.635795520299536e-05,
+        "n_total": 3590,
+        "test_n": 718,
+        "confusion_matrix": {
+          "global": {
+            "TP": 689,
+            "TN": 0,
+            "FP": 29,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 687,
+            "TN": 16,
+            "FP": 12,
+            "FN": 3
+          },
+          "hybrid": {
+            "TP": 700,
+            "TN": 1,
+            "FP": 17,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.04039,
+          "custom": 0.016713,
+          "hybrid": 0.023677,
+          "assigned": 0.34783
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.79,
+          "threshold_review": 0.74,
+          "fp_rate_at_opt": 0.002114,
+          "fn_rate_at_opt": 0.185342,
+          "fp_rate_baseline": 0.002819,
+          "fn_rate_baseline": 0.093023,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 25.01,
+          "n_samples": 718,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.76
+        },
+        "threshold_review": {
+          "value": 0.74
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 3590,
+            "n_features_total": 94,
+            "n_apmu_features": 0,
+            "n_nf_features": 13,
+            "best_config": "base+nf",
+            "f1": 0.98946,
+            "auc": 0.95446,
+            "om_rate": 0.34783,
+            "delta_f1_vs_base": 0.0003,
+            "delta_om_vs_base": 0.0145,
+            "cv_results": {
+              "base": {
+                "auc": 0.94947,
+                "f1": 0.98916,
+                "om_rate": 0.33333,
+                "fn_rate": 0.0084
+              },
+              "base+nf": {
+                "auc": 0.95446,
+                "f1": 0.98946,
+                "om_rate": 0.34783,
+                "fn_rate": 0.00724
+              }
+            }
+          }
+        }
+      },
+      "el_salvador": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=0.0%, p=0.000), global es mÃ¡s simple",
+        "f1_global": 0.9840709978382068,
+        "f1_custom": 0.9840921139651453,
+        "delta_f1": 2.1116126938447444e-05,
+        "p_value": 0.0,
+        "n_total": 3761,
+        "test_n": 752,
+        "confusion_matrix": {
+          "global": {
+            "TP": 744,
+            "TN": 0,
+            "FP": 8,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 745,
+            "TN": 0,
+            "FP": 8,
+            "FN": 0
+          },
+          "hybrid": {
+            "TP": 742,
+            "TN": 0,
+            "FP": 10,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.010638,
+          "custom": 0.010624,
+          "hybrid": 0.013298,
+          "assigned": 0.76316
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.54,
+          "threshold_review": 0.54,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.000997,
+          "fp_rate_baseline": 0.010638,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 752,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:00:35.870749",
+          "prev_threshold_merge": 0.54
+        },
+        "threshold_review": {
+          "value": 0.54
+        },
+        "model_metrics": {
+          "latam_nf_retrain": {
+            "timestamp": "2026-06-15T19:10:12.887965",
+            "n_samples": 3761,
+            "n_features_total": 107,
+            "n_apmu_features": 29,
+            "n_nf_features": 13,
+            "best_config": "base+apmu+nf",
+            "f1": 0.99545,
+            "auc": 0.96792,
+            "om_rate": 0.76316,
+            "delta_f1_vs_base": 0.00122,
+            "delta_om_vs_base": 0.05263,
+            "cv_results": {
+              "base": {
+                "auc": 0.94332,
+                "f1": 0.99423,
+                "om_rate": 0.71053,
+                "fn_rate": 0.0043
+              },
+              "base+apmu": {
+                "auc": 0.95387,
+                "f1": 0.9945,
+                "om_rate": 0.73684,
+                "fn_rate": 0.00349
+              },
+              "base+nf": {
+                "auc": 0.96222,
+                "f1": 0.99532,
+                "om_rate": 0.78947,
+                "fn_rate": 0.00134
+              },
+              "base+apmu+nf": {
+                "auc": 0.96792,
+                "f1": 0.99545,
+                "om_rate": 0.76316,
+                "fn_rate": 0.00134
+              }
+            }
+          }
+        }
+      },
+      "germany": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 14.0% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8457048258187678,
+        "f1_custom": 0.9857190709729067,
+        "delta_f1": 0.14001424515413885,
+        "p_value": 0.0,
+        "n_total": 75417,
+        "test_n": 15083,
+        "confusion_matrix": {
+          "global": {
+            "TP": 12622,
+            "TN": 612,
+            "FP": 1821,
+            "FN": 28
+          },
+          "custom": {
+            "TP": 12523,
+            "TN": 2344,
+            "FP": 64,
+            "FN": 153
+          },
+          "hybrid": {
+            "TP": 12674,
+            "TN": 824,
+            "FP": 1552,
+            "FN": 33
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.120732,
+          "custom": 0.004243,
+          "hybrid": 0.102897,
+          "assigned": 0.0088
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.63,
+          "threshold_review": 0.63,
+          "fp_rate_at_opt": 0.000292,
+          "fn_rate_at_opt": 0.032723,
+          "fp_rate_baseline": 0.000767,
+          "fn_rate_baseline": 0.017339,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 61.93,
+          "n_samples": 15084,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.901455",
+          "prev_threshold_merge": 0.63
+        },
+        "threshold_review": {
+          "value": 0.63
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 75417,
+            "n_features_base": 180,
+            "n_features_nf": 13,
+            "n_features_total": 193,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.9915,
+            "f1_nf": 0.99177,
+            "f1_best": 0.99177,
+            "auc_best": 0.99613,
+            "om_best": 0.0088,
+            "delta_f1": 0.00027,
+            "delta_om": 0.00016
+          }
+        }
+      },
+      "turkey": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 11.3% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8383263407968574,
+        "f1_custom": 0.9513020730593331,
+        "delta_f1": 0.1129757322624757,
+        "p_value": 3.3718385906510036e-10,
+        "n_total": 2163,
+        "test_n": 432,
+        "confusion_matrix": {
+          "global": {
+            "TP": 379,
+            "TN": 4,
+            "FP": 50,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 370,
+            "TN": 42,
+            "FP": 11,
+            "FN": 10
+          },
+          "hybrid": {
+            "TP": 382,
+            "TN": 2,
+            "FP": 48,
+            "FN": 1
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.115473,
+          "custom": 0.025404,
+          "hybrid": 0.110855,
+          "assigned": 0.19101
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.58,
+          "threshold_review": 0.49,
+          "fp_rate_at_opt": 0.012717,
+          "fn_rate_at_opt": 0.020809,
+          "fp_rate_baseline": 0.021387,
+          "fn_rate_baseline": 0.010405,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 40.54,
+          "n_samples": 433,
+          "review_rate_at_opt": 0.0208,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.902453",
+          "prev_threshold_merge": 0.58
+        },
+        "threshold_review": {
+          "value": 0.49
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 2163,
+            "n_features_base": 83,
+            "n_features_nf": 13,
+            "n_features_total": 96,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.96798,
+            "f1_nf": 0.96984,
+            "f1_best": 0.96984,
+            "auc_best": 0.9801,
+            "om_best": 0.19101,
+            "delta_f1": 0.00186,
+            "delta_om": 0.04869
+          }
+        }
+      },
+      "italy": {
+        "decision": "CUSTOM",
+        "rationale": "CUSTOM: modelo especifico para Italia con fp_penalty=5 optimizado para reducir overmerge. Binary F1: CUSTOM=0.8945 vs GLOBAL=0.8911 (+0.34pp). Recall CUSTOM=99.86% vs GLOBAL=99.44%; OM CUSTOM=14.03% vs GLOBAL=14.24%.",
+        "f1_global": 0.8437843429386878,
+        "f1_custom": 0.8493186318929764,
+        "delta_f1": 0.005534288954288646,
+        "p_value": 0.0,
+        "n_total": 81804,
+        "test_n": 16360,
+        "confusion_matrix": {
+          "global": {
+            "TP": 9781,
+            "TN": 4158,
+            "FP": 2371,
+            "FN": 51
+          },
+          "custom": {
+            "TP": 9783,
+            "TN": 4238,
+            "FP": 2314,
+            "FN": 26
+          },
+          "hybrid": {
+            "TP": 9860,
+            "TN": 4169,
+            "FP": 2299,
+            "FN": 33
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.144918,
+          "custom": 0.141434,
+          "hybrid": 0.140517,
+          "assigned": 0.34077
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.6,
+          "threshold_review": 0.57,
+          "fp_rate_at_opt": 1.7e-05,
+          "fn_rate_at_opt": 0.331344,
+          "fp_rate_baseline": 0.000681,
+          "fn_rate_baseline": 0.234649,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 97.5,
+          "n_samples": 16361,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.902453",
+          "prev_threshold_merge": 0.6
+        },
+        "threshold_review": {
+          "value": 0.57
+        },
+        "nf_retrain": {
+          "best_config": "base",
+          "best_fp_penalty": 5.0,
+          "cv_om_rate": 0.34239,
+          "cv_auc": 0.86041,
+          "cv_f1": 0.89624,
+          "cv_fn_rate": 0.0023,
+          "delta_om": 0.0,
+          "delta_auc": 0.0,
+          "model_path": "model_custom_italy_nf.pkl",
+          "n_features": 106
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 81804,
+            "n_features_base": 93,
+            "n_features_nf": 13,
+            "n_features_total": 106,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.89645,
+            "f1_nf": 0.89661,
+            "f1_best": 0.89661,
+            "auc_best": 0.85851,
+            "om_best": 0.34077,
+            "delta_f1": 0.00016,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "spain": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=0.5%, p=0.000), global es mÃ¡s simple",
+        "f1_global": 0.979260830014349,
+        "f1_custom": 0.9843853912074786,
+        "delta_f1": 0.00512456119312954,
+        "p_value": 0.0,
+        "n_total": 108257,
+        "test_n": 21651,
+        "confusion_matrix": {
+          "global": {
+            "TP": 11717,
+            "TN": 9485,
+            "FP": 230,
+            "FN": 219
+          },
+          "custom": {
+            "TP": 11769,
+            "TN": 9545,
+            "FP": 196,
+            "FN": 142
+          },
+          "hybrid": {
+            "TP": 11583,
+            "TN": 9580,
+            "FP": 230,
+            "FN": 258
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.010623,
+          "custom": 0.009052,
+          "hybrid": 0.010623,
+          "assigned": 0.01439
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.71,
+          "threshold_review": 0.56,
+          "fp_rate_at_opt": 0.004369,
+          "fn_rate_at_opt": 0.033632,
+          "fp_rate_baseline": 0.015935,
+          "fn_rate_baseline": 0.016874,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 72.58,
+          "n_samples": 21651,
+          "review_rate_at_opt": 0.0211,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.71
+        },
+        "threshold_review": {
+          "value": 0.56
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 108257,
+            "n_features_base": 94,
+            "n_features_nf": 13,
+            "n_features_total": 107,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.98718,
+            "f1_nf": 0.98757,
+            "f1_best": 0.98757,
+            "auc_best": 0.99876,
+            "om_best": 0.01439,
+            "delta_f1": 0.00039,
+            "delta_om": -0.00019
+          }
+        }
+      },
+      "france": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 6.3% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8977748978999818,
+        "f1_custom": 0.9606441254386309,
+        "delta_f1": 0.0628692275386491,
+        "p_value": 1.1207685823990479e-85,
+        "n_total": 29956,
+        "test_n": 5991,
+        "confusion_matrix": {
+          "global": {
+            "TP": 5421,
+            "TN": 106,
+            "FP": 462,
+            "FN": 2
+          },
+          "custom": {
+            "TP": 5393,
+            "TN": 376,
+            "FP": 173,
+            "FN": 50
+          },
+          "hybrid": {
+            "TP": 5416,
+            "TN": 135,
+            "FP": 438,
+            "FN": 2
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.077116,
+          "custom": 0.028872,
+          "hybrid": 0.07311,
+          "assigned": 0.03899
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.56,
+          "threshold_review": 0.53,
+          "fp_rate_at_opt": 0.004423,
+          "fn_rate_at_opt": 0.029878,
+          "fp_rate_baseline": 0.023869,
+          "fn_rate_baseline": 0.01544,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 81.47,
+          "n_samples": 5992,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.903456",
+          "prev_threshold_merge": 0.56
+        },
+        "threshold_review": {
+          "value": 0.53
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 29956,
+            "n_features_base": 111,
+            "n_features_nf": 13,
+            "n_features_total": 124,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.98163,
+            "f1_nf": 0.98251,
+            "f1_best": 0.98251,
+            "auc_best": 0.98967,
+            "om_best": 0.03899,
+            "delta_f1": 0.00088,
+            "delta_om": 0.00765
+          }
+        }
+      },
+      "switzerland": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=0.0%, p=0.000), global es mÃ¡s simple",
+        "f1_global": 0.99727167434424,
+        "f1_custom": 0.997282040142714,
+        "delta_f1": 1.0365798474021304e-05,
+        "p_value": 4.9834791790985584e-11,
+        "n_total": 1852,
+        "test_n": 370,
+        "confusion_matrix": {
+          "global": {
+            "TP": 24,
+            "TN": 345,
+            "FP": 0,
+            "FN": 1
+          },
+          "custom": {
+            "TP": 27,
+            "TN": 343,
+            "FP": 0,
+            "FN": 1
+          },
+          "hybrid": {
+            "TP": 28,
+            "TN": 341,
+            "FP": 0,
+            "FN": 1
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.0,
+          "custom": 0.0,
+          "hybrid": 0.0,
+          "assigned": 0.00175
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.5,
+          "threshold_review": 0.5,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.01418,
+          "fp_rate_baseline": 0.0,
+          "fn_rate_baseline": 0.01418,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 370,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.903456",
+          "prev_threshold_merge": 0.82
+        },
+        "threshold_review": {
+          "value": 0.5
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1852,
+            "n_features_base": 105,
+            "n_features_nf": 13,
+            "n_features_total": 118,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.97143,
+            "f1_nf": 0.97509,
+            "f1_best": 0.97509,
+            "auc_best": 0.99983,
+            "om_best": 0.00175,
+            "delta_f1": 0.00366,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "russia": {
+        "decision": "CUSTOM",
+        "rationale": "Actualizado 2026-07-09: comparacion Step 6 fue enganosa (ambos modelos predecian cero merges, TP=0 global). Tras global_nf_retrain: CUSTOM F1=0.6047 vs GLOBAL F1=0.3478 (+26pp). Se adopta CUSTOM.",
+        "f1_global": 0.9844668763710469,
+        "f1_custom": 0.982922880605566,
+        "delta_f1": -0.001543995765480921,
+        "p_value": 0.47950012218695337,
+        "n_total": 4820,
+        "test_n": 964,
+        "confusion_matrix": {
+          "global": {
+            "TP": 0,
+            "TN": 954,
+            "FP": 0,
+            "FN": 10
+          },
+          "custom": {
+            "TP": 2,
+            "TN": 950,
+            "FP": 0,
+            "FN": 12
+          },
+          "hybrid": {
+            "TP": 0,
+            "TN": 950,
+            "FP": 0,
+            "FN": 14
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.0,
+          "custom": 0.0,
+          "hybrid": 0.0,
+          "assigned": 0.01221
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.54,
+          "threshold_review": 0.54,
+          "fp_rate_at_opt": 0.011151,
+          "fn_rate_at_opt": 0.0,
+          "fp_rate_baseline": 0.013745,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 18.87,
+          "n_samples": 964,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T14:53:08.864431",
+          "prev_threshold_merge": 0.63
+        },
+        "threshold_review": {
+          "value": 0.54
+        },
+        "nf_retrain": {
+          "best_config": "base+class_weight",
+          "best_fp_penalty": 1.0,
+          "cv_om_rate": 0.00021,
+          "cv_auc": 0.96208,
+          "cv_f1": 0.31707,
+          "cv_fn_rate": 0.80882,
+          "delta_om": 0.0,
+          "delta_auc": 0.0,
+          "model_path": "model_custom_russia_nf.pkl",
+          "n_features": 119
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 4820,
+            "n_features_base": 106,
+            "n_features_nf": 0,
+            "n_features_total": 106,
+            "nf_available": true,
+            "nf_adopted": false,
+            "best_config": "base",
+            "f1_base": 0.36364,
+            "f1_nf": 0.35443,
+            "f1_best": 0.36364,
+            "auc_best": 0.95747,
+            "om_best": 0.01221,
+            "delta_f1": 0.0,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "finland": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 5.5% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.9103368494487397,
+        "f1_custom": 0.9652104923885556,
+        "delta_f1": 0.05487364293981589,
+        "p_value": 5.387809931888525e-19,
+        "n_total": 858,
+        "test_n": 171,
+        "confusion_matrix": {
+          "global": {
+            "TP": 107,
+            "TN": 50,
+            "FP": 14,
+            "FN": 1
+          },
+          "custom": {
+            "TP": 102,
+            "TN": 64,
+            "FP": 2,
+            "FN": 4
+          },
+          "hybrid": {
+            "TP": 104,
+            "TN": 58,
+            "FP": 8,
+            "FN": 2
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.081395,
+          "custom": 0.011628,
+          "hybrid": 0.046512,
+          "assigned": 0.04545
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.59,
+          "threshold_review": 0.5,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.044186,
+          "fp_rate_baseline": 0.0,
+          "fn_rate_baseline": 0.023256,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 172,
+          "review_rate_at_opt": 0.0233,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.904600",
+          "prev_threshold_merge": 0.59
+        },
+        "threshold_review": {
+          "value": 0.5
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 858,
+            "n_features_base": 116,
+            "n_features_nf": 13,
+            "n_features_total": 129,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.95985,
+            "f1_nf": 0.95777,
+            "f1_best": 0.95777,
+            "auc_best": 0.99033,
+            "om_best": 0.04545,
+            "delta_f1": -0.00208,
+            "delta_om": -0.00303
+          }
+        }
+      },
+      "greece": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=-0.3%, p=0.000), global es mÃ¡s simple",
+        "f1_global": 0.9059851748274291,
+        "f1_custom": 0.9033723728908957,
+        "delta_f1": -0.00261280193653346,
+        "p_value": 5.460022261836434e-18,
+        "n_total": 1766,
+        "test_n": 353,
+        "confusion_matrix": {
+          "global": {
+            "TP": 281,
+            "TN": 42,
+            "FP": 30,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 256,
+            "TN": 65,
+            "FP": 25,
+            "FN": 8
+          },
+          "hybrid": {
+            "TP": 268,
+            "TN": 54,
+            "FP": 27,
+            "FN": 4
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.084986,
+          "custom": 0.070621,
+          "hybrid": 0.076487,
+          "assigned": 0.22321
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.69,
+          "threshold_review": 0.66,
+          "fp_rate_at_opt": 0.018939,
+          "fn_rate_at_opt": 0.508333,
+          "fp_rate_baseline": 0.029545,
+          "fn_rate_baseline": 0.262879,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 35.9,
+          "n_samples": 353,
+          "review_rate_at_opt": 0.0538,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.69
+        },
+        "threshold_review": {
+          "value": 0.66
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1766,
+            "n_features_base": 80,
+            "n_features_nf": 13,
+            "n_features_total": 93,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.9527,
+            "f1_nf": 0.9508,
+            "f1_best": 0.9508,
+            "auc_best": 0.93125,
+            "om_best": 0.22321,
+            "delta_f1": -0.0019,
+            "delta_om": 0.00223
+          }
+        }
+      },
+      "netherlands": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 40.3% mejor (p=0.028), justifica modelo especÃ­fico",
+        "f1_global": 0.5031167011769415,
+        "f1_custom": 0.905953145769788,
+        "delta_f1": 0.4028364445928465,
+        "p_value": 0.028309976162966294,
+        "n_total": 1387,
+        "test_n": 277,
+        "confusion_matrix": {
+          "global": {
+            "TP": 156,
+            "TN": 13,
+            "FP": 108,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 152,
+            "TN": 100,
+            "FP": 17,
+            "FN": 9
+          },
+          "hybrid": {
+            "TP": 170,
+            "TN": 35,
+            "FP": 71,
+            "FN": 1
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.389892,
+          "custom": 0.061151,
+          "hybrid": 0.256318,
+          "assigned": 0.061151
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.52,
+          "threshold_review": 0.42,
+          "fp_rate_at_opt": 0.034265,
+          "fn_rate_at_opt": 0.002705,
+          "fp_rate_baseline": 0.037872,
+          "fn_rate_baseline": 0.001803,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 9.52,
+          "n_samples": 278,
+          "review_rate_at_opt": 0.0252,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.905598",
+          "prev_threshold_merge": 0.52
+        },
+        "threshold_review": {
+          "value": 0.42
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1387,
+            "n_features_base": 84,
+            "n_features_nf": 0,
+            "n_features_total": 84,
+            "nf_available": true,
+            "nf_adopted": false,
+            "best_config": "base",
+            "f1_base": 0.91374,
+            "f1_nf": 0.90822,
+            "f1_best": 0.91374,
+            "auc_best": 0.96159,
+            "om_best": 0.18696,
+            "delta_f1": 0.0,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "poland": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 6.6% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.9140320190829075,
+        "f1_custom": 0.9801800145641467,
+        "delta_f1": 0.06614799548123917,
+        "p_value": 3.958856765956041e-07,
+        "n_total": 3453,
+        "test_n": 690,
+        "confusion_matrix": {
+          "global": {
+            "TP": 651,
+            "TN": 0,
+            "FP": 40,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 645,
+            "TN": 33,
+            "FP": 11,
+            "FN": 2
+          },
+          "hybrid": {
+            "TP": 652,
+            "TN": 0,
+            "FP": 39,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.057887,
+          "custom": 0.015919,
+          "hybrid": 0.05644,
+          "assigned": 0.22273
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.53,
+          "threshold_review": 0.53,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.004964,
+          "fp_rate_baseline": 0.0,
+          "fn_rate_baseline": 0.002673,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 691,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.905598",
+          "prev_threshold_merge": 0.53
+        },
+        "threshold_review": {
+          "value": 0.53
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 3453,
+            "n_features_base": 129,
+            "n_features_nf": 13,
+            "n_features_total": 142,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.98698,
+            "f1_nf": 0.9861,
+            "f1_best": 0.9861,
+            "auc_best": 0.99018,
+            "om_best": 0.22273,
+            "delta_f1": -0.00088,
+            "delta_om": 0.06364
+          }
+        }
+      },
+      "saudi_arabia": {
+        "decision": "EVALUATE",
+        "rationale": "Beneficio marginal 4.4% - evaluar costo vs accuracy trade-off",
+        "f1_global": 0.9108112719310717,
+        "f1_custom": 0.9551038641947733,
+        "delta_f1": 0.044292592263701636,
+        "p_value": 0.00360934693594544,
+        "n_total": 1098,
+        "test_n": 219,
+        "confusion_matrix": {
+          "global": {
+            "TP": 201,
+            "TN": 4,
+            "FP": 15,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 199,
+            "TN": 12,
+            "FP": 8,
+            "FN": 1
+          },
+          "hybrid": {
+            "TP": 201,
+            "TN": 3,
+            "FP": 16,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.068182,
+          "custom": 0.036364,
+          "hybrid": 0.072727,
+          "assigned": 0.35714
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.7,
+          "threshold_review": 0.69,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.720957,
+          "fp_rate_baseline": 0.002278,
+          "fn_rate_baseline": 0.424829,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 100.0,
+          "n_samples": 220,
+          "review_rate_at_opt": 0.0273,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.906977",
+          "prev_threshold_merge": 0.77
+        },
+        "threshold_review": {
+          "value": 0.69
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1098,
+            "n_features_base": 75,
+            "n_features_nf": 13,
+            "n_features_total": 88,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.97421,
+            "f1_nf": 0.97474,
+            "f1_best": 0.97474,
+            "auc_best": 0.93487,
+            "om_best": 0.35714,
+            "delta_f1": 0.00053,
+            "delta_om": 0.0102
+          }
+        }
+      },
+      "south_africa": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 25.3% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.5915331951510584,
+        "f1_custom": 0.8450247138771728,
+        "delta_f1": 0.2534915187261144,
+        "p_value": 0.00017038793483715602,
+        "n_total": 1524,
+        "test_n": 304,
+        "confusion_matrix": {
+          "global": {
+            "TP": 217,
+            "TN": 0,
+            "FP": 88,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 208,
+            "TN": 51,
+            "FP": 29,
+            "FN": 17
+          },
+          "hybrid": {
+            "TP": 214,
+            "TN": 4,
+            "FP": 86,
+            "FN": 1
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.288525,
+          "custom": 0.095082,
+          "hybrid": 0.281967,
+          "assigned": 0.21608
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.59,
+          "threshold_review": 0.56,
+          "fp_rate_at_opt": 0.013158,
+          "fn_rate_at_opt": 0.098178,
+          "fp_rate_baseline": 0.029352,
+          "fn_rate_baseline": 0.049595,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 55.17,
+          "n_samples": 305,
+          "review_rate_at_opt": 0.023,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.906977",
+          "prev_threshold_merge": 0.59
+        },
+        "threshold_review": {
+          "value": 0.56
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1524,
+            "n_features_base": 85,
+            "n_features_nf": 13,
+            "n_features_total": 98,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.91257,
+            "f1_nf": 0.90909,
+            "f1_best": 0.90909,
+            "auc_best": 0.92337,
+            "om_best": 0.21608,
+            "delta_f1": -0.00348,
+            "delta_om": 0.04523
+          }
+        }
+      },
+      "bahrain": {
+        "decision": "GLOBAL",
+        "rationale": "Muestra insuficiente (n_total=20, test_n=4 < 30); test estadÃ­stico no confiable (Î”F1=40.0%, p=1.000)",
+        "f1_global": 0.3333333333333333,
+        "f1_custom": 0.7333333333333334,
+        "delta_f1": 0.4000000000000001,
+        "p_value": 1.0,
+        "n_total": 20,
+        "test_n": 4,
+        "confusion_matrix": {
+          "global": {
+            "TP": 2,
+            "TN": 0,
+            "FP": 2,
+            "FN": 0
+          },
+          "custom": null,
+          "hybrid": null
+        },
+        "overmerge_rate": {
+          "global": 0.5,
+          "custom": null,
+          "hybrid": null,
+          "assigned": 0.5
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.58,
+          "threshold_review": 0.55,
+          "fp_rate_at_opt": 0.0625,
+          "fn_rate_at_opt": 0.125,
+          "fp_rate_baseline": 0.125,
+          "fn_rate_baseline": 0.0625,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 50.0,
+          "n_samples": 4,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": false,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.58
+        },
+        "threshold_review": {
+          "value": 0.55
+        },
+        "uat_routing_note": "Routed to GLOBAL for UAT: insufficient training data (decision was INSUFFICIENT_DATA). Custom model trained on n<5 samples."
+      },
+      "algeria": {
+        "decision": "GLOBAL",
+        "rationale": "Muestra insuficiente (n_total=23, test_n=4 < 30); test estadÃ­stico no confiable (Î”F1=26.7%, p=0.480)",
+        "f1_global": 0.3333333333333333,
+        "f1_custom": 0.6,
+        "delta_f1": 0.26666666666666666,
+        "p_value": 0.47950012218695337,
+        "n_total": 23,
+        "test_n": 4,
+        "confusion_matrix": {
+          "global": {
+            "TP": 2,
+            "TN": 0,
+            "FP": 2,
+            "FN": 0
+          },
+          "custom": null,
+          "hybrid": null
+        },
+        "overmerge_rate": {
+          "global": 0.5,
+          "custom": null,
+          "hybrid": null,
+          "assigned": 0.07692
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.52,
+          "threshold_review": 0.51,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.333333,
+          "fp_rate_baseline": 0.055556,
+          "fn_rate_baseline": 0.166667,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 100.0,
+          "n_samples": 4,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.907978",
+          "prev_threshold_merge": 0.73
+        },
+        "threshold_review": {
+          "value": 0.51
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 23,
+            "n_features_base": 50,
+            "n_features_nf": 0,
+            "n_features_total": 50,
+            "nf_available": true,
+            "nf_adopted": false,
+            "best_config": "base",
+            "f1_base": 0.64,
+            "f1_nf": 0.58824,
+            "f1_best": 0.64,
+            "auc_best": 0.65385,
+            "om_best": 0.53846,
+            "delta_f1": 0.0,
+            "delta_om": 0.0
+          }
+        },
+        "uat_routing_note": "Routed to GLOBAL for UAT: insufficient training data (was INSUFFICIENT_DATA). algeria n=4, kenya n=12."
+      },
+      "iraq": {
+        "decision": "GLOBAL",
+        "rationale": "Muestra insuficiente (n_total=17, test_n=3 < 30); test estadÃ­stico no confiable (Î”F1=76.7%, p=1.000)",
+        "f1_global": 0.0,
+        "f1_custom": 0.7666666666666667,
+        "delta_f1": 0.7666666666666667,
+        "p_value": 1.0,
+        "n_total": 17,
+        "test_n": 3,
+        "confusion_matrix": {
+          "global": {
+            "TP": 0,
+            "TN": 0,
+            "FP": 3,
+            "FN": 0
+          },
+          "custom": null,
+          "hybrid": null
+        },
+        "overmerge_rate": {
+          "global": 1.0,
+          "custom": null,
+          "hybrid": null,
+          "assigned": 1.0
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.57,
+          "threshold_review": 0.52,
+          "fp_rate_at_opt": 0.076923,
+          "fn_rate_at_opt": 0.153846,
+          "fp_rate_baseline": 0.230769,
+          "fn_rate_baseline": 0.076923,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 66.67,
+          "n_samples": 3,
+          "review_rate_at_opt": 0.3333,
+          "om_constraint_met": false,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.908983",
+          "prev_threshold_merge": 0.58
+        },
+        "threshold_review": {
+          "value": 0.52
+        },
+        "uat_routing_note": "Routed to GLOBAL for UAT: insufficient training data (decision was INSUFFICIENT_DATA). Custom model trained on n<5 samples."
+      },
+      "kuwait": {
+        "decision": "GLOBAL",
+        "rationale": "Muestra insuficiente (n_total=23, test_n=4 < 30); test estadÃ­stico no confiable (Î”F1=33.1%, p=1.000)",
+        "f1_global": 0.45,
+        "f1_custom": 0.7809523809523808,
+        "delta_f1": 0.33095238095238083,
+        "p_value": 1.0,
+        "n_total": 23,
+        "test_n": 4,
+        "confusion_matrix": {
+          "global": {
+            "TP": 3,
+            "TN": 0,
+            "FP": 2,
+            "FN": 0
+          },
+          "custom": null,
+          "hybrid": null
+        },
+        "overmerge_rate": {
+          "global": 0.4,
+          "custom": null,
+          "hybrid": null,
+          "assigned": 0.4
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.77,
+          "threshold_review": 0.64,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.444444,
+          "fp_rate_baseline": 0.166667,
+          "fn_rate_baseline": 0.222222,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 100.0,
+          "n_samples": 5,
+          "review_rate_at_opt": 0.2,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.77
+        },
+        "threshold_review": {
+          "value": 0.64
+        },
+        "uat_routing_note": "Routed to GLOBAL for UAT: insufficient training data (decision was INSUFFICIENT_DATA). Custom model trained on n<5 samples."
+      },
+      "qatar": {
+        "decision": "GLOBAL",
+        "rationale": "Muestra insuficiente (n_total=17, test_n=3 < 30); test estadÃ­stico no confiable (Î”F1=-35.7%, p=0.000)",
+        "f1_global": 1.0,
+        "f1_custom": 0.6428571428571428,
+        "delta_f1": -0.3571428571428572,
+        "p_value": 0.0,
+        "n_total": 17,
+        "test_n": 3,
+        "confusion_matrix": {
+          "global": {
+            "TP": 3,
+            "TN": 0,
+            "FP": 0,
+            "FN": 0
+          },
+          "custom": null,
+          "hybrid": null
+        },
+        "overmerge_rate": {
+          "global": 0.0,
+          "custom": null,
+          "hybrid": null,
+          "assigned": 0.0
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.58,
+          "threshold_review": 0.56,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.384615,
+          "fp_rate_baseline": 0.0,
+          "fn_rate_baseline": 0.230769,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 3,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.910528",
+          "prev_threshold_merge": 0.8
+        },
+        "threshold_review": {
+          "value": 0.56
+        },
+        "uat_routing_note": "Routed to GLOBAL for UAT: insufficient training data (decision was INSUFFICIENT_DATA). Custom model trained on n<5 samples."
+      },
+      "kenya": {
+        "decision": "GLOBAL",
+        "rationale": "Muestra insuficiente (n_total=58, test_n=11 < 30); test estadÃ­stico no confiable (Î”F1=0.0%, p=0.000)",
+        "f1_global": 0.7575757575757575,
+        "f1_custom": 0.7575757575757575,
+        "delta_f1": 0.0,
+        "p_value": 0.0,
+        "n_total": 58,
+        "test_n": 11,
+        "confusion_matrix": {
+          "global": {
+            "TP": 10,
+            "TN": 0,
+            "FP": 2,
+            "FN": 0
+          },
+          "custom": null,
+          "hybrid": null
+        },
+        "overmerge_rate": {
+          "global": 0.166667,
+          "custom": null,
+          "hybrid": null,
+          "assigned": 1.0
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.68,
+          "threshold_review": 0.68,
+          "fp_rate_at_opt": 0.166667,
+          "fn_rate_at_opt": 0.0,
+          "fp_rate_baseline": 0.166667,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 12,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": null
+        },
+        "threshold_review": {
+          "value": 0.68
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 58,
+            "n_features_base": 65,
+            "n_features_nf": 13,
+            "n_features_total": 78,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.91589,
+            "f1_nf": 0.92593,
+            "f1_best": 0.92593,
+            "auc_best": 0.40375,
+            "om_best": 1.0,
+            "delta_f1": 0.01004,
+            "delta_om": 0.0
+          }
+        },
+        "uat_routing_note": "Routed to GLOBAL for UAT: insufficient training data (was INSUFFICIENT_DATA). algeria n=4, kenya n=12."
+      },
+      "hong_kong": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 33.6% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.592919296700146,
+        "f1_custom": 0.9285849604721589,
+        "delta_f1": 0.3356656637720129,
+        "p_value": 2.1307339250539385e-06,
+        "n_total": 3234,
+        "test_n": 646,
+        "confusion_matrix": {
+          "global": {
+            "TP": 454,
+            "TN": 4,
+            "FP": 189,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 431,
+            "TN": 170,
+            "FP": 26,
+            "FN": 20
+          },
+          "hybrid": {
+            "TP": 444,
+            "TN": 11,
+            "FP": 192,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.292117,
+          "custom": 0.040185,
+          "hybrid": 0.296754,
+          "assigned": 0.11327
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.74,
+          "threshold_review": 0.55,
+          "fp_rate_at_opt": 0.032083,
+          "fn_rate_at_opt": 0.044066,
+          "fp_rate_baseline": 0.052184,
+          "fn_rate_baseline": 0.025899,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 38.52,
+          "n_samples": 647,
+          "review_rate_at_opt": 0.0464,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.911538",
+          "prev_threshold_merge": 0.74
+        },
+        "threshold_review": {
+          "value": 0.55
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 3234,
+            "n_features_base": 75,
+            "n_features_nf": 13,
+            "n_features_total": 88,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.94805,
+            "f1_nf": 0.95998,
+            "f1_best": 0.95998,
+            "auc_best": 0.97658,
+            "om_best": 0.11327,
+            "delta_f1": 0.01193,
+            "delta_om": -0.00408
+          }
+        }
+      },
+      "australia": {
+        "decision": "EVALUATE",
+        "rationale": "Beneficio marginal 3.8% - evaluar costo vs accuracy trade-off",
+        "f1_global": 0.93026511015929,
+        "f1_custom": 0.9686930186806455,
+        "delta_f1": 0.03842790852135547,
+        "p_value": 1.3785655170023429e-06,
+        "n_total": 1214,
+        "test_n": 242,
+        "confusion_matrix": {
+          "global": {
+            "TP": 213,
+            "TN": 15,
+            "FP": 14,
+            "FN": 1
+          },
+          "custom": {
+            "TP": 221,
+            "TN": 15,
+            "FP": 7,
+            "FN": 0
+          },
+          "hybrid": {
+            "TP": 219,
+            "TN": 16,
+            "FP": 7,
+            "FN": 1
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.057613,
+          "custom": 0.028807,
+          "hybrid": 0.028807,
+          "assigned": 0.1875
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.95,
+          "threshold_review": 0.83,
+          "fp_rate_at_opt": 0.0,
+          "fn_rate_at_opt": 0.905252,
+          "fp_rate_baseline": 0.0,
+          "fn_rate_baseline": 0.503605,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 243,
+          "review_rate_at_opt": 0.0247,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.95
+        },
+        "threshold_review": {
+          "value": 0.83
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1214,
+            "n_features_base": 82,
+            "n_features_nf": 13,
+            "n_features_total": 95,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.97868,
+            "f1_nf": 0.98692,
+            "f1_best": 0.98692,
+            "auc_best": 0.99091,
+            "om_best": 0.1875,
+            "delta_f1": 0.00824,
+            "delta_om": -0.02679
+          }
+        }
+      },
+      "indonesia": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 13.3% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8000063088490245,
+        "f1_custom": 0.9334291144778918,
+        "delta_f1": 0.13342280562886732,
+        "p_value": 2.24141563013426e-66,
+        "n_total": 8124,
+        "test_n": 1624,
+        "confusion_matrix": {
+          "global": {
+            "TP": 845,
+            "TN": 469,
+            "FP": 305,
+            "FN": 6
+          },
+          "custom": {
+            "TP": 822,
+            "TN": 695,
+            "FP": 71,
+            "FN": 37
+          },
+          "hybrid": {
+            "TP": 850,
+            "TN": 484,
+            "FP": 283,
+            "FN": 8
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.187692,
+          "custom": 0.043692,
+          "hybrid": 0.174154,
+          "assigned": 0.08014
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.68,
+          "threshold_review": 0.65,
+          "fp_rate_at_opt": 0.003831,
+          "fn_rate_at_opt": 0.102752,
+          "fp_rate_baseline": 0.00627,
+          "fn_rate_baseline": 0.055381,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 38.9,
+          "n_samples": 1625,
+          "review_rate_at_opt": 0.0265,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.911538",
+          "prev_threshold_merge": 0.68
+        },
+        "threshold_review": {
+          "value": 0.65
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 8124,
+            "n_features_base": 245,
+            "n_features_nf": 13,
+            "n_features_total": 258,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.94134,
+            "f1_nf": 0.94423,
+            "f1_best": 0.94423,
+            "auc_best": 0.99028,
+            "om_best": 0.08014,
+            "delta_f1": 0.00289,
+            "delta_om": -0.00757
+          }
+        }
+      },
+      "india": {
+        "decision": "CUSTOM",
+        "rationale": "Actualizado 2026-07-09: Step 6 usaba weighted F1. Binary F1: CUSTOM=0.9637 vs GLOBAL=0.3075 (+65.62pp). Se adopta CUSTOM.",
+        "f1_global": 0.9499900067629207,
+        "f1_custom": 0.9889824993808828,
+        "delta_f1": 0.038992492617962116,
+        "p_value": 9.994370120189666e-162,
+        "n_total": 17960,
+        "test_n": 3592,
+        "confusion_matrix": {
+          "global": {
+            "TP": 422,
+            "TN": 2998,
+            "FP": 32,
+            "FN": 140
+          },
+          "custom": {
+            "TP": 552,
+            "TN": 3000,
+            "FP": 35,
+            "FN": 5
+          },
+          "hybrid": {
+            "TP": 474,
+            "TN": 2990,
+            "FP": 42,
+            "FN": 86
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.008909,
+          "custom": 0.009744,
+          "hybrid": 0.011693,
+          "assigned": 0.01193
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.57,
+          "threshold_review": 0.57,
+          "fp_rate_at_opt": 0.008561,
+          "fn_rate_at_opt": 0.001601,
+          "fp_rate_baseline": 0.009396,
+          "fn_rate_baseline": 0.000905,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 8.89,
+          "n_samples": 3592,
+          "review_rate_at_opt": 0.0226,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T16:17:17.524687",
+          "prev_threshold_merge": 0.57
+        },
+        "threshold_review": {
+          "value": 0.57
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 17960,
+            "n_features_base": 120,
+            "n_features_nf": 13,
+            "n_features_total": 133,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.96796,
+            "f1_nf": 0.96673,
+            "f1_best": 0.96673,
+            "auc_best": 0.9992,
+            "om_best": 0.01193,
+            "delta_f1": -0.00123,
+            "delta_om": 0.0002
+          }
+        }
+      },
+      "south_korea": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 10.2% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8853100038037277,
+        "f1_custom": 0.9877248425804919,
+        "delta_f1": 0.10241483877676416,
+        "p_value": 1.382694240651702e-05,
+        "n_total": 1249,
+        "test_n": 249,
+        "confusion_matrix": {
+          "global": {
+            "TP": 229,
+            "TN": 1,
+            "FP": 20,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 220,
+            "TN": 27,
+            "FP": 3,
+            "FN": 0
+          },
+          "hybrid": {
+            "TP": 216,
+            "TN": 21,
+            "FP": 13,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.08,
+          "custom": 0.012,
+          "hybrid": 0.052,
+          "assigned": 0.0604
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.6,
+          "threshold_review": 0.6,
+          "fp_rate_at_opt": 0.003003,
+          "fn_rate_at_opt": 0.0,
+          "fp_rate_baseline": 0.003003,
+          "fn_rate_baseline": 0.0,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 0.0,
+          "n_samples": 250,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.911538",
+          "prev_threshold_merge": 0.6
+        },
+        "threshold_review": {
+          "value": 0.6
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 1249,
+            "n_features_base": 86,
+            "n_features_nf": 13,
+            "n_features_total": 99,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.99502,
+            "f1_nf": 0.99502,
+            "f1_best": 0.99502,
+            "auc_best": 0.99297,
+            "om_best": 0.0604,
+            "delta_f1": 0.0,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "malaysia": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 17.0% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.7844174051628696,
+        "f1_custom": 0.9542023425216165,
+        "delta_f1": 0.1697849373587469,
+        "p_value": 5.695073382448952e-46,
+        "n_total": 6547,
+        "test_n": 1309,
+        "confusion_matrix": {
+          "global": {
+            "TP": 907,
+            "TN": 157,
+            "FP": 239,
+            "FN": 6
+          },
+          "custom": {
+            "TP": 921,
+            "TN": 330,
+            "FP": 49,
+            "FN": 10
+          },
+          "hybrid": {
+            "TP": 932,
+            "TN": 191,
+            "FP": 183,
+            "FN": 3
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.182582,
+          "custom": 0.037405,
+          "hybrid": 0.139801,
+          "assigned": 0.05383
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.59,
+          "threshold_review": 0.54,
+          "fp_rate_at_opt": 0.000213,
+          "fn_rate_at_opt": 0.063952,
+          "fp_rate_baseline": 0.004903,
+          "fn_rate_baseline": 0.034747,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 95.66,
+          "n_samples": 1310,
+          "review_rate_at_opt": 0.0206,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.911538",
+          "prev_threshold_merge": 0.59
+        },
+        "threshold_review": {
+          "value": 0.54
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 6547,
+            "n_features_base": 254,
+            "n_features_nf": 13,
+            "n_features_total": 267,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.97322,
+            "f1_nf": 0.97796,
+            "f1_best": 0.97796,
+            "auc_best": 0.99617,
+            "om_best": 0.05383,
+            "delta_f1": 0.00474,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "pakistan": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 6.0% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8665315863747578,
+        "f1_custom": 0.9265548875364474,
+        "delta_f1": 0.060023301161689635,
+        "p_value": 2.169217214707316e-309,
+        "n_total": 26340,
+        "test_n": 5268,
+        "confusion_matrix": {
+          "global": {
+            "TP": 3184,
+            "TN": 1411,
+            "FP": 647,
+            "FN": 26
+          },
+          "custom": {
+            "TP": 3167,
+            "TN": 1720,
+            "FP": 328,
+            "FN": 53
+          },
+          "hybrid": {
+            "TP": 3250,
+            "TN": 1377,
+            "FP": 615,
+            "FN": 26
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.122817,
+          "custom": 0.062263,
+          "hybrid": 0.116743,
+          "assigned": 0.14482
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.58,
+          "threshold_review": 0.49,
+          "fp_rate_at_opt": 0.04945,
+          "fn_rate_at_opt": 0.018603,
+          "fp_rate_baseline": 0.058134,
+          "fn_rate_baseline": 0.009634,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 14.94,
+          "n_samples": 5268,
+          "review_rate_at_opt": 0.0222,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.913044",
+          "prev_threshold_merge": 0.58
+        },
+        "threshold_review": {
+          "value": 0.49
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 26340,
+            "n_features_base": 258,
+            "n_features_nf": 13,
+            "n_features_total": 271,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.94498,
+            "f1_nf": 0.94507,
+            "f1_best": 0.94507,
+            "auc_best": 0.97525,
+            "om_best": 0.14482,
+            "delta_f1": 9e-05,
+            "delta_om": 0.00185
+          }
+        }
+      },
+      "philippines": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 8.4% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8618818116210895,
+        "f1_custom": 0.9454113300063846,
+        "delta_f1": 0.0835295183852951,
+        "p_value": 1.0936584535574732e-82,
+        "n_total": 12084,
+        "test_n": 2416,
+        "confusion_matrix": {
+          "global": {
+            "TP": 1974,
+            "TN": 163,
+            "FP": 276,
+            "FN": 4
+          },
+          "custom": {
+            "TP": 1921,
+            "TN": 368,
+            "FP": 98,
+            "FN": 30
+          },
+          "hybrid": {
+            "TP": 1942,
+            "TN": 172,
+            "FP": 300,
+            "FN": 3
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.114191,
+          "custom": 0.040546,
+          "hybrid": 0.124121,
+          "assigned": 0.10725
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.59,
+          "threshold_review": 0.53,
+          "fp_rate_at_opt": 0.001792,
+          "fn_rate_at_opt": 0.048482,
+          "fp_rate_baseline": 0.006851,
+          "fn_rate_baseline": 0.029511,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 73.84,
+          "n_samples": 2417,
+          "review_rate_at_opt": 0.0228,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.913044",
+          "prev_threshold_merge": 0.59
+        },
+        "threshold_review": {
+          "value": 0.53
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 12084,
+            "n_features_base": 281,
+            "n_features_nf": 13,
+            "n_features_total": 294,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.96928,
+            "f1_nf": 0.96924,
+            "f1_best": 0.96924,
+            "auc_best": 0.98413,
+            "om_best": 0.10725,
+            "delta_f1": -4e-05,
+            "delta_om": 0.00129
+          }
+        }
+      },
+      "singapore": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 13.0% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.8352864791188739,
+        "f1_custom": 0.9653612752238024,
+        "delta_f1": 0.13007479610492856,
+        "p_value": 4.692243321451697e-25,
+        "n_total": 5373,
+        "test_n": 1074,
+        "confusion_matrix": {
+          "global": {
+            "TP": 902,
+            "TN": 36,
+            "FP": 137,
+            "FN": 0
+          },
+          "custom": {
+            "TP": 910,
+            "TN": 129,
+            "FP": 30,
+            "FN": 6
+          },
+          "hybrid": {
+            "TP": 926,
+            "TN": 36,
+            "FP": 113,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.127442,
+          "custom": 0.027907,
+          "hybrid": 0.105116,
+          "assigned": 0.12798
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.56,
+          "threshold_review": 0.49,
+          "fp_rate_at_opt": 0.014054,
+          "fn_rate_at_opt": 0.027381,
+          "fp_rate_baseline": 0.019869,
+          "fn_rate_baseline": 0.015023,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 29.27,
+          "n_samples": 1075,
+          "review_rate_at_opt": 0.0242,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.913596",
+          "prev_threshold_merge": 0.56
+        },
+        "threshold_review": {
+          "value": 0.49
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 5373,
+            "n_features_base": 260,
+            "n_features_nf": 13,
+            "n_features_total": 273,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.97551,
+            "f1_nf": 0.98016,
+            "f1_best": 0.98016,
+            "auc_best": 0.98443,
+            "om_best": 0.12798,
+            "delta_f1": 0.00465,
+            "delta_om": -0.00878
+          }
+        }
+      },
+      "thailand": {
+        "decision": "CUSTOM",
+        "rationale": "Actualizado 2026-07-09: Step 6 usaba weighted F1 (enmascarado por merge rate 51%). Binary F1: CUSTOM=0.9982 vs GLOBAL=0.7206 (+27.76pp). Se adopta CUSTOM.",
+        "f1_global": 0.9752472907862302,
+        "f1_custom": 0.990110023236642,
+        "delta_f1": 0.014862732450411809,
+        "p_value": 3.454571769147402e-158,
+        "n_total": 8090,
+        "test_n": 1618,
+        "confusion_matrix": {
+          "global": {
+            "TP": 847,
+            "TN": 731,
+            "FP": 34,
+            "FN": 6
+          },
+          "custom": {
+            "TP": 828,
+            "TN": 774,
+            "FP": 11,
+            "FN": 5
+          },
+          "hybrid": {
+            "TP": 845,
+            "TN": 739,
+            "FP": 32,
+            "FN": 2
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.021014,
+          "custom": 0.006799,
+          "hybrid": 0.019778,
+          "assigned": 0.01502
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.56,
+          "threshold_review": 0.56,
+          "fp_rate_at_opt": 0.002187,
+          "fn_rate_at_opt": 0.000312,
+          "fp_rate_baseline": 0.002343,
+          "fn_rate_baseline": 0.000156,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 6.66,
+          "n_samples": 1618,
+          "review_rate_at_opt": 0.0222,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T16:17:17.524687",
+          "prev_threshold_merge": 0.56
+        },
+        "threshold_review": {
+          "value": 0.56
+        },
+        "nf_retrain": {
+          "best_config": "base+class_weight",
+          "best_fp_penalty": 1.0,
+          "cv_om_rate": 0.01655,
+          "cv_auc": 0.99928,
+          "cv_f1": 0.99033,
+          "cv_fn_rate": 0.00384,
+          "delta_om": 0.0,
+          "delta_auc": 0.0,
+          "model_path": "model_custom_thailand_nf.pkl",
+          "n_features": 263
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 8090,
+            "n_features_base": 250,
+            "n_features_nf": 13,
+            "n_features_total": 263,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.99164,
+            "f1_nf": 0.99164,
+            "f1_best": 0.99164,
+            "auc_best": 0.99945,
+            "om_best": 0.01502,
+            "delta_f1": 0.0,
+            "delta_om": -0.00026
+          }
+        }
+      },
+      "taiwan": {
+        "decision": "GLOBAL",
+        "rationale": "No hay diferencia significativa (Î”F1=1.2%, p=0.000), global es mÃ¡s simple",
+        "f1_global": 0.9846931698777942,
+        "f1_custom": 0.9966183086069834,
+        "delta_f1": 0.01192513872918921,
+        "p_value": 4.957579818210212e-57,
+        "n_total": 2952,
+        "test_n": 590,
+        "confusion_matrix": {
+          "global": {
+            "TP": 370,
+            "TN": 211,
+            "FP": 8,
+            "FN": 1
+          },
+          "custom": {
+            "TP": 354,
+            "TN": 235,
+            "FP": 0,
+            "FN": 2
+          },
+          "hybrid": {
+            "TP": 373,
+            "TN": 210,
+            "FP": 7,
+            "FN": 0
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.013559,
+          "custom": 0.0,
+          "hybrid": 0.011864,
+          "assigned": 0.0068
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.77,
+          "threshold_review": 0.68,
+          "fp_rate_at_opt": 0.002541,
+          "fn_rate_at_opt": 0.241,
+          "fp_rate_baseline": 0.30665,
+          "fn_rate_baseline": 0.136806,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 99.17,
+          "n_samples": 590,
+          "review_rate_at_opt": 0.0,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-08T16:08:28.600288",
+          "prev_threshold_merge": 0.77
+        },
+        "threshold_review": {
+          "value": 0.68
+        },
+        "nf_retrain": {
+          "best_config": "base+NF+class_weight",
+          "best_fp_penalty": 1.0,
+          "cv_om_rate": 0.0068,
+          "cv_auc": 0.99901,
+          "cv_f1": 0.99691,
+          "cv_fn_rate": 0.00169,
+          "delta_om": 0.0,
+          "delta_auc": 0.00022,
+          "model_path": "model_custom_taiwan_nf.pkl",
+          "n_features": 253
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 2952,
+            "n_features_base": 240,
+            "n_features_nf": 13,
+            "n_features_total": 253,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.99747,
+            "f1_nf": 0.99747,
+            "f1_best": 0.99747,
+            "auc_best": 0.99885,
+            "om_best": 0.0068,
+            "delta_f1": 0.0,
+            "delta_om": 0.0
+          }
+        }
+      },
+      "vietnam": {
+        "decision": "CUSTOM",
+        "rationale": "Custom es 5.6% mejor (p=0.000), justifica modelo especÃ­fico",
+        "f1_global": 0.809345143015313,
+        "f1_custom": 0.8658270217317834,
+        "delta_f1": 0.05648187871647037,
+        "p_value": 4.935838448932809e-227,
+        "n_total": 30096,
+        "test_n": 6019,
+        "confusion_matrix": {
+          "global": {
+            "TP": 1320,
+            "TN": 3596,
+            "FP": 276,
+            "FN": 827
+          },
+          "custom": {
+            "TP": 1682,
+            "TN": 3534,
+            "FP": 361,
+            "FN": 443
+          },
+          "hybrid": {
+            "TP": 1287,
+            "TN": 3584,
+            "FP": 278,
+            "FN": 870
+          }
+        },
+        "overmerge_rate": {
+          "global": 0.045855,
+          "custom": 0.059967,
+          "hybrid": 0.046187,
+          "assigned": 0.27938
+        },
+        "overmerge_at_risk": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.59,
+          "threshold_review": 0.57,
+          "fp_rate_at_opt": 0.003107,
+          "fn_rate_at_opt": 0.158606,
+          "fp_rate_baseline": 0.014275,
+          "fn_rate_baseline": 0.085022,
+          "fn_tolerance": 1.0,
+          "overmerge_reduction_pct": 78.23,
+          "n_samples": 6020,
+          "review_rate_at_opt": 0.0272,
+          "om_constraint_met": true,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T14:53:08.864431",
+          "prev_threshold_merge": 0.59
+        },
+        "threshold_review": {
+          "value": 0.57
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 30096,
+            "n_features_base": 267,
+            "n_features_nf": 13,
+            "n_features_total": 280,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.78748,
+            "f1_nf": 0.78662,
+            "f1_best": 0.78662,
+            "auc_best": 0.93993,
+            "om_best": 0.27938,
+            "delta_f1": -0.00086,
+            "delta_om": -0.00482
+          }
+        }
+      },
+      "united_states": {
+        "decision": "CUSTOM",
+        "rationale": "Custom model trained on 25882 samples (22272 original + 3612 multi-rule File3). F1=0.7935 AUC=0.7791",
+        "f1_global": null,
+        "f1_custom": 0.7935,
+        "delta_f1": null,
+        "n_total": 25882,
+        "test_n": 5177,
+        "threshold_optimal": {
+          "threshold_merge": 0.53,
+          "threshold_review": 0.52,
+          "fp_rate_at_opt": 0.16595,
+          "fn_rate_at_opt": 0.14185,
+          "fp_rate_baseline": 0.188747,
+          "fn_rate_baseline": 0.088771,
+          "om_constraint_met": false,
+          "om_constraint_target": 0.05,
+          "updated_at": "2026-07-09T09:04:10.900471",
+          "overmerge_reduction_pct": 12.08,
+          "prev_threshold_merge": 0.53
+        },
+        "threshold_review": {
+          "value": 0.52
+        },
+        "model_metrics": {
+          "global_nf_retrain": {
+            "timestamp": "2026-06-15T20:06:56.810963",
+            "n_samples": 25882,
+            "n_features_base": 69,
+            "n_features_nf": 13,
+            "n_features_total": 82,
+            "nf_available": true,
+            "nf_adopted": true,
+            "best_config": "base+nf",
+            "f1_base": 0.77566,
+            "f1_nf": 0.79753,
+            "f1_best": 0.79753,
+            "auc_best": 0.7819,
+            "om_best": 0.35172,
+            "delta_f1": 0.02187,
+            "delta_om": 0.01678
+          }
+        }
+      },
+      "peru": {
+        "decision": "GLOBAL",
+        "rationale": "Nuevo mercado sin dataset de entrenamiento. Usa modelo global. 2026-07-13.",
+        "f1_global": null,
+        "f1_custom": null,
+        "delta_f1": null,
+        "n_total": null,
+        "test_n": null,
+        "threshold_optimal": {
+          "threshold_merge": 0.5,
+          "threshold_review": 0.45,
+          "om_constraint_target": 0.05,
+          "om_constraint_met": null,
+          "updated_at": "2026-07-13T00:00:00"
+        }
+      }
+    },
+    "global_recommendation": "MIXED_STRATEGY",
+    "summary": {
+      "n_custom": 19,
+      "n_global": 14,
+      "n_hybrid": 0,
+      "n_evaluate": 5,
+      "n_insufficient": 6,
+      "n_overmerge_at_risk": null
+    }
+  },
+  "strategy_a_summary": {
+    "f1_global": 0.8832732402110541,
+    "performance_by_country": {
+      "argentina": 0.32616079020219446,
+      "brazil": 0.9418592953353602,
+      "mexico": 0.6282678287669624,
+      "colombia": 0.8604087318027714,
+      "costa_rica": 0.9849277638583769,
+      "chile": 0.8572990705303445,
+      "canada": 0.968367144837733,
+      "dominican_republic": 0.7977473103363235,
+      "guatemala": 0.8693769415063264,
+      "honduras": 0.9364986458928514,
+      "nicaragua": 0.9684858154077496,
+      "panama": 0.9398312852767599,
+      "el_salvador": 0.9840709978382068,
+      "germany": 0.8457048258187678,
+      "turkey": 0.8383263407968574,
+      "italy": 0.8437843429386878,
+      "spain": 0.979260830014349,
+      "france": 0.8977748978999818,
+      "switzerland": 0.99727167434424,
+      "russia": 0.9844668763710469,
+      "finland": 0.9103368494487397,
+      "greece": 0.9059851748274291,
+      "netherlands": 0.5031167011769415,
+      "poland": 0.9140320190829075,
+      "saudi_arabia": 0.9108112719310717,
+      "south_africa": 0.5915331951510584,
+      "bahrain": 0.3333333333333333,
+      "algeria": 0.3333333333333333,
+      "iraq": 0.0,
+      "kuwait": 0.45,
+      "qatar": 1.0,
+      "kenya": 0.7575757575757575,
+      "hong_kong": 0.592919296700146,
+      "australia": 0.93026511015929,
+      "indonesia": 0.8000063088490245,
+      "india": 0.9499900067629207,
+      "south_korea": 0.8853100038037277,
+      "malaysia": 0.7844174051628696,
+      "pakistan": 0.8665315863747578,
+      "philippines": 0.8618818116210895,
+      "singapore": 0.8352864791188739,
+      "thailand": 0.9752472907862302,
+      "taiwan": 0.9846931698777942,
+      "vietnam": 0.809345143015313
+    }
+  },
+  "strategy_b_summary": {
+    "performance_by_country": {
+      "argentina": 0.7665383105226898,
+      "brazil": 0.9639989428743624,
+      "mexico": 0.8420589674332138,
+      "colombia": 0.9274271076474118,
+      "costa_rica": 0.991547165829941,
+      "chile": 0.9629355742296919,
+      "canada": 0.984155127772149,
+      "dominican_republic": 0.9776853165613085,
+      "guatemala": 0.9352679321662242,
+      "honduras": 0.9722998118509063,
+      "nicaragua": 0.996853346841354,
+      "panama": 0.9771760806400349,
+      "el_salvador": 0.9840921139651453,
+      "germany": 0.9857190709729067,
+      "turkey": 0.9513020730593331,
+      "italy": 0.8493186318929764,
+      "spain": 0.9843853912074786,
+      "france": 0.9606441254386309,
+      "switzerland": 0.997282040142714,
+      "russia": 0.982922880605566,
+      "finland": 0.9652104923885556,
+      "greece": 0.9033723728908957,
+      "netherlands": 0.905953145769788,
+      "poland": 0.9801800145641467,
+      "saudi_arabia": 0.9551038641947733,
+      "south_africa": 0.8450247138771728,
+      "bahrain": 0.7333333333333334,
+      "algeria": 0.6,
+      "iraq": 0.7666666666666667,
+      "kuwait": 0.7809523809523808,
+      "qatar": 0.6428571428571428,
+      "kenya": 0.7575757575757575,
+      "hong_kong": 0.9285849604721589,
+      "australia": 0.9686930186806455,
+      "indonesia": 0.9334291144778918,
+      "india": 0.9889824993808828,
+      "south_korea": 0.9877248425804919,
+      "malaysia": 0.9542023425216165,
+      "pakistan": 0.9265548875364474,
+      "philippines": 0.9454113300063846,
+      "singapore": 0.9653612752238024,
+      "thailand": 0.990110023236642,
+      "taiwan": 0.9966183086069834,
+      "vietnam": 0.8658270217317834
+    }
+  },
+  "strategy_c_summary": {
+    "performance_by_country": {
+      "argentina": 0.4254222293714892,
+      "australia": 0.9648305006551144,
+      "brazil": 0.9460904919047224,
+      "canada": 0.968367144837733,
+      "chile": 0.8924956134431097,
+      "costa_rica": 0.9937876067927974,
+      "dominican_republic": 0.8291810259895366,
+      "el_salvador": 0.9800976957475291,
+      "finland": 0.9412762758186269,
+      "france": 0.9054266382430332,
+      "germany": 0.8731914335117872,
+      "greece": 0.9066968827024805,
+      "guatemala": 0.8951472724369895,
+      "honduras": 0.9364986458928514,
+      "hong_kong": 0.5965005031610067,
+      "india": 0.9637650151271804,
+      "indonesia": 0.8137326212595282,
+      "italy": 0.8496540589884798,
+      "kenya": 0.7575757575757575,
+      "malaysia": 0.8416302694214066,
+      "mexico": 0.65542734420173,
+      "netherlands": 0.6980867363939692,
+      "nicaragua": 0.9774667714865533,
+      "pakistan": 0.8727850458036639,
+      "panama": 0.9658728591194304,
+      "philippines": 0.8503109867334455,
+      "poland": 0.9161595796610609,
+      "russia": 0.9782688814023769,
+      "saudi_arabia": 0.9022183558068726,
+      "singapore": 0.8658030684687883,
+      "south_africa": 0.6106838000619884,
+      "south_korea": 0.9426140960163432,
+      "spain": 0.9774633453063579,
+      "switzerland": 0.9972755679313435,
+      "taiwan": 0.9880934906294984,
+      "thailand": 0.978960767662912,
+      "turkey": 0.8399305867650162,
+      "vietnam": 0.8008913109807563,
+      "colombia": 0.919503137018115
+    }
+  },
+  "threshold_optimization_run": {
+    "timestamp": "2026-07-09T11:49:38.548200",
+    "n_countries_updated": 4
+  },
+  "threshold_optimization_global_run": {
+    "timestamp": "2026-07-09T16:17:17.524687",
+    "n_countries_updated": 2
+  },
+  "global_model_retrain": {
+    "timestamp": "2026-07-09T08:57:00.411268",
+    "model_used": "nf",
+    "global_f1_base": 0.8752,
+    "global_f1_nf": 0.8773,
+    "global_delta": 0.0021,
+    "nf_adopted": true,
+    "adoption_rationale": "NF adopted: global delta=+0.0021, 12/39 markets improve, 2 degrade (threshold 2.0pp).",
+    "market_regression_thresh": 0.02,
+    "max_degraded_markets": 3,
+    "min_global_gain": 0.002,
+    "n_markets_evaluated": 39,
+    "n_markets_improved": 12,
+    "n_markets_degraded": 2,
+    "degraded_markets": [
+      "guatemala",
+      "indonesia"
+    ],
+    "per_market_delta": {
+      "argentina": 0.0315,
+      "australia": -0.0038,
+      "brazil": 0.0032,
+      "canada": -0.0117,
+      "chile": 0.028,
+      "colombia": 0.0079,
+      "costa_rica": -0.0021,
+      "dominican_republic": -0.0015,
+      "el_salvador": 0.0073,
+      "finland": -0.0002,
+      "france": -0.0019,
+      "germany": 0.0011,
+      "greece": 0.0305,
+      "guatemala": -0.0259,
+      "honduras": 0.0282,
+      "hong_kong": -0.0128,
+      "india": -0.0147,
+      "indonesia": -0.0241,
+      "italy": 0.0011,
+      "malaysia": -0.0062,
+      "mexico": 0.0093,
+      "netherlands": -0.0064,
+      "nicaragua": 0.008,
+      "pakistan": -0.009,
+      "panama": 0.0156,
+      "philippines": -0.0119,
+      "poland": 0.0183,
+      "russia": -0.0032,
+      "saudi_arabia": 0.0097,
+      "singapore": -0.0023,
+      "south_africa": 0.0022,
+      "south_korea": 0.004,
+      "spain": 0.0005,
+      "switzerland": 0.0,
+      "taiwan": 0.0034,
+      "thailand": 0.0005,
+      "turkey": 0.0048,
+      "united_states": 0.0055,
+      "vietnam": -0.0145
+    },
+    "n_features_base": 28,
+    "n_features_nf": 42
+  }
+}

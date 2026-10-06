@@ -1,0 +1,83 @@
+# Contract: RECONCILIATION_WATERFALL
+# Produced by: Process #4 (Ingest Steward Decisions) — extends the pattern already implemented by
+#   uat_09._append_waterfall_record() / uat/manifest/reconciliation_waterfall.csv
+# Storage: append-only Parquet/CSV, one row per (market, file-group, ingestion run)
+schema_version: 1
+
+logical_key: [ingestion_run_id, market_iso, file_group_ts]
+
+append_only: true   # never updated in place; a corrected reconciliation is a NEW row referencing the same run_id
+
+closure_invariant: >
+  files_discovered - files_already_processed - files_processed MUST equal files_skipped (test scenario
+  #19: "el reconciliation waterfall cierra matemáticamente"). Similarly:
+  raw_rows - rows_with_decision - (blank/unfilled rows) = 0, and
+  rows_with_decision - automated_rows_excluded - invalid_decisions - duplicates_within_file
+    - duplicates_across_files - already_resolved_pairs - conflicting_decisions = new_resolved_pairs_written.
+  Any run whose numbers do not close MUST fail loudly (raise), never publish a manifest as SUCCESS.
+
+columns:
+  - name: run_timestamp
+    type: timestamp
+    nullable: false
+  - name: ingestion_run_id
+    type: string
+    nullable: false
+  - name: market_iso
+    type: string
+    nullable: false
+  - name: market_slug
+    type: string
+    nullable: false
+  - name: file_group_ts
+    type: string
+    nullable: false
+  - name: files_discovered
+    type: int
+    nullable: false
+  - name: files_already_processed
+    type: int
+    nullable: false
+  - name: files_processed
+    type: int
+    nullable: false
+  - name: files_skipped
+    type: int
+    nullable: false
+    description: files_discovered - files_already_processed - files_processed
+  - name: raw_rows
+    type: int
+    nullable: false
+  - name: rows_with_decision
+    type: int
+    nullable: false
+  - name: automated_rows_excluded
+    type: int
+    nullable: false
+  - name: invalid_decisions
+    type: int
+    nullable: false
+  - name: duplicates_within_file
+    type: int
+    nullable: false
+  - name: duplicates_across_files
+    type: int
+    nullable: false
+  - name: already_resolved_pairs
+    type: int
+    nullable: false
+  - name: conflicting_decisions
+    type: int
+    nullable: false
+  - name: new_resolved_pairs_written
+    type: int
+    nullable: false
+  - name: exclusion_reason
+    type: string
+    nullable: true
+    description: '"no_filled_decisions_in_any_chunk" | "all_pairs_already_resolved" | null on success (matches uat_09 convention).'
+
+migration_notes: >
+  Column set matches uat_09's existing waterfall almost exactly, plus ingestion_run_id/market_slug for
+  join-ability with INGESTED_FILE_REGISTRY and RUN_MANIFEST. No breaking rename of existing uat_09
+  waterfall columns is proposed.

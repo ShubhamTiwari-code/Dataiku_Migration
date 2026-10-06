@@ -1,0 +1,260 @@
+{
+  "pipeline_version": "unknown",
+  "generated_at": "2026-09-24T13:36:10.340468+00:00",
+  "routing_json": {
+    "file": "paso_6_model_strategy_decision.json",
+    "sha256": "d89dda90fc981b5abb81713956fcf09683af302d4cc86a8578a244d025d0cc3d"
+  },
+  "models": {
+    "global": {
+      "file": "model_global.pkl",
+      "sha256": "9132df7c509d40b8ecbebd79837771f0a7218f928a082e0889b2a08853d78098",
+      "mtime": "2026-07-09T11:57:00.359731+00:00"
+    },
+    "algeria": {
+      "file": "model_custom_algeria.pkl",
+      "sha256": "e29b944f657c1399c93832ec62b5c318b662ffcffd423d2f343b580d8b3b3603",
+      "mtime": "2026-06-15T20:05:14+00:00"
+    },
+    "argentina": {
+      "file": "model_custom_argentina.pkl",
+      "sha256": "842547a37b68bd8404d832fdcec2bceeb6284b5208ec2fa764fd7dc5f2742f12",
+      "mtime": "2026-07-22T19:41:06.559873+00:00"
+    },
+    "australia": {
+      "file": "model_custom_australia.pkl",
+      "sha256": "06c7aec503a881d2e604f660ebe3d243d19cb0938f71fb7692e75c762301c179",
+      "mtime": "2026-06-15T20:05:26.670095+00:00"
+    },
+    "bahrain": {
+      "file": "model_custom_bahrain.pkl",
+      "sha256": "3f6dcb5de54baf73879bee9f864b6fbd12b78c9ef5507d89460e5eff93829b6c",
+      "mtime": "2026-06-09T20:19:46+00:00"
+    },
+    "brazil": {
+      "file": "model_custom_brazil.pkl",
+      "sha256": "9e98025b7b79f71a15c45f278cbac8a75c6542c87ed2937052b0dedc677ebf62",
+      "mtime": "2026-07-22T19:42:11.820581+00:00"
+    },
+    "canada": {
+      "file": "model_custom_canada.pkl",
+      "sha256": "80f071a8a1c6f4ce210600b4543cef57704e0ca801911e022ad5102945cbe134",
+      "mtime": "2026-06-15T20:06:56.803954+00:00"
+    },
+    "chile": {
+      "file": "model_custom_chile.pkl",
+      "sha256": "6ab8a58e1b32969329118a522daef348516e0425cfff14b440b0152bbecc729e",
+      "mtime": "2026-06-24T03:22:08.955350+00:00"
+    },
+    "colombia": {
+      "file": "model_custom_colombia.pkl",
+      "sha256": "a17a3fa44824a17a82b8895c388bc825206e01622ff9858ded62f59cf4155b92",
+      "mtime": "2026-07-22T19:43:13.036339+00:00"
+    },
+    "costa_rica": {
+      "file": "model_custom_costa_rica.pkl",
+      "sha256": "24e73b05d95cb098ce33b28cf53d0c5f957a374f78571fd2ca9414dcf4c8461a",
+      "mtime": "2026-06-15T19:10:12.878304+00:00"
+    },
+    "dominican_republic": {
+      "file": "model_custom_dominican_republic.pkl",
+      "sha256": "d2bb8754db73cd5a2fcaa2276bc60b3992c640fa67201b70638feb6e99014f72",
+      "mtime": "2026-06-15T19:09:14.450635+00:00"
+    },
+    "el_salvador": {
+      "file": "model_custom_el_salvador.pkl",
+      "sha256": "a01678bca521a76edac2fef6f3d66fbe9b2b07a477ebb563832726c2b6754f25",
+      "mtime": "2026-06-15T19:09:58.831330+00:00"
+    },
+    "finland": {
+      "file": "model_custom_finland.pkl",
+      "sha256": "4f12d1a841dd6b30e4883ca76dca0bfd64fde1a3d5a12402f9f1b279be2770af",
+      "mtime": "2026-06-15T20:04:38.714155+00:00"
+    },
+    "france": {
+      "file": "model_custom_france.pkl",
+      "sha256": "b3b7ea2ccefb14cf437daebcdd77253046e1dad73497562f6f61f1a1d850d31e",
+      "mtime": "2026-06-15T20:03:58.378010+00:00"
+    },
+    "germany": {
+      "file": "model_custom_germany.pkl",
+      "sha256": "a82bdd43ada0817b0daae365edeecff6124c5ddc12507d5d4c01d0e25f259cfe",
+      "mtime": "2026-06-15T20:03:28.166993+00:00"
+    },
+    "greece": {
+      "file": "model_custom_greece.pkl",
+      "sha256": "e9a2d206241e7ad6a1e99eed000f9eb7605764dde50232e0a244661a3a3ae486",
+      "mtime": "2026-06-15T20:05:01.909423+00:00"
+    },
+    "guatemala": {
+      "file": "model_custom_guatemala.pkl",
+      "sha256": "90b83bebda3059cbcec9ee9cd4c81c00e445f39633547946be884078ffde0007",
+      "mtime": "2026-06-15T19:09:34.004254+00:00"
+    },
+    "honduras": {
+      "file": "model_custom_honduras.pkl",
+      "sha256": "731f6978cc1298a6324b0366579da64ce9e2a8a5d12300c063617b6d00b05e35",
+      "mtime": "2026-06-15T19:09:38.687004+00:00"
+    },
+    "hong_kong": {
+      "file": "model_custom_hong_kong.pkl",
+      "sha256": "101e75738ad4e25030cf081aa6218e70fe4a802ed5b5a9a09f571e655a1bd732",
+      "mtime": "2026-06-15T20:05:22.422434+00:00"
+    },
+    "india": {
+      "file": "model_custom_india.pkl",
+      "sha256": "216b7b337923697114c216267ea51ad8238e3ac4c5e76468f6b5bd6ff8405c70",
+      "mtime": "2026-06-15T20:05:40.021889+00:00"
+    },
+    "indonesia": {
+      "file": "model_custom_indonesia.pkl",
+      "sha256": "972463e38df8af44bd01f27f3169ab1f037b177c7d60c86b9c750ee827601408",
+      "mtime": "2026-06-15T20:05:32.751403+00:00"
+    },
+    "iraq": {
+      "file": "model_custom_iraq.pkl",
+      "sha256": "3cfec1f3a1fd83e5e0e907befa5071bd9929c65e5c750e343fee987d0466c6e8",
+      "mtime": "2026-06-09T20:19:46+00:00"
+    },
+    "italy": {
+      "file": "model_custom_italy.pkl",
+      "sha256": "10d735de3433fb138d3360d9718b66a236889940fa9e1c11ea7fc471cfb544c9",
+      "mtime": "2026-06-15T20:03:49.573781+00:00"
+    },
+    "italy_nf": {
+      "file": "model_custom_italy_nf.pkl",
+      "sha256": "7b2167b446b35d822aeaf1191974f50e7639ec2cb5b6992927ffca272194bf43",
+      "mtime": "2026-06-10T19:30:50+00:00"
+    },
+    "kenya": {
+      "file": "model_custom_kenya.pkl",
+      "sha256": "84fe0564073246c295c6550bf2bab5d3426e3ded0732a908f630bb0789eac7c9",
+      "mtime": "2026-06-15T20:05:17+00:00"
+    },
+    "kuwait": {
+      "file": "model_custom_kuwait.pkl",
+      "sha256": "2214024fccc4bfacda04746a383ba16d12ae117ab8d37c1bde0f70f6f6daa533",
+      "mtime": "2026-06-09T20:19:46+00:00"
+    },
+    "malaysia": {
+      "file": "model_custom_malaysia.pkl",
+      "sha256": "ee29b04551bce4f32518ca41bc2e96fd05b46cfd31d4107c812124602da55ee8",
+      "mtime": "2026-06-15T20:05:49.391933+00:00"
+    },
+    "mexico": {
+      "file": "model_custom_mexico.pkl",
+      "sha256": "e1488f8f43a3880173dabea00d71ca87eaa1a7ce485999fa0b3058e0ac9ad9e4",
+      "mtime": "2026-07-22T19:42:55.544216+00:00"
+    },
+    "netherlands": {
+      "file": "model_custom_netherlands.pkl",
+      "sha256": "340156b7cf06abe786ba0c3d7587d88bdde6bec709c69ea37fac631265c86c5d",
+      "mtime": "2026-06-15T20:04:42.809219+00:00"
+    },
+    "nicaragua": {
+      "file": "model_custom_nicaragua.pkl",
+      "sha256": "a34127ebff0e75d10b360824b1df0d485e783a46f5d99deb1499a1d7c5873146",
+      "mtime": "2026-06-15T19:09:49.581290+00:00"
+    },
+    "pakistan": {
+      "file": "model_custom_pakistan.pkl",
+      "sha256": "fbfe238fb78d5a1e755ec3ff3fe1913fedfdce477e490dbc8644451c42febf1c",
+      "mtime": "2026-06-15T20:06:00.868677+00:00"
+    },
+    "panama": {
+      "file": "model_custom_panama.pkl",
+      "sha256": "90749ac70670047faaa98a5f4060ecd1e0ffe2512bb7e6b82bbe6f01757cdfc8",
+      "mtime": "2026-06-15T19:09:44.929565+00:00"
+    },
+    "philippines": {
+      "file": "model_custom_philippines.pkl",
+      "sha256": "687730407b15f747309842719c74e5a5c515bca9483aa7be8684b5354b7edf86",
+      "mtime": "2026-06-15T20:06:09.770790+00:00"
+    },
+    "poland": {
+      "file": "model_custom_poland.pkl",
+      "sha256": "cfaf4ae097284c845a60c919155e213b5123dc9150069fd58de490fe62869de6",
+      "mtime": "2026-06-15T20:04:48.323520+00:00"
+    },
+    "qatar": {
+      "file": "model_custom_qatar.pkl",
+      "sha256": "04a8617348caf099eba83a61b4db8bc6b60684a43dac9ebf3e525cb02d4f8961",
+      "mtime": "2026-06-09T20:19:46+00:00"
+    },
+    "russia": {
+      "file": "model_custom_russia.pkl",
+      "sha256": "d1698512f342b3c212c29651d8c8b24217a204d83e5b6e9dba67b614b8c76046",
+      "mtime": "2026-06-15T20:05:06.556405+00:00"
+    },
+    "russia_nf": {
+      "file": "model_custom_russia_nf.pkl",
+      "sha256": "dfc8fa386b2207196d35007826c9d895517cce43d2064ed7f7fa5874cecaddc1",
+      "mtime": "2026-06-10T19:31:00+00:00"
+    },
+    "saudi_arabia": {
+      "file": "model_custom_saudi_arabia.pkl",
+      "sha256": "5905573adf1bba563f05c890e5f32c8bc67e4e96dd101773ef2e4ef33f5048d0",
+      "mtime": "2026-06-15T20:04:57.547495+00:00"
+    },
+    "singapore": {
+      "file": "model_custom_singapore.pkl",
+      "sha256": "41f03b56c15e6b95368d8e9cdb3f9a5e9fb448359bb071ef5e4b780a63995d33",
+      "mtime": "2026-06-15T20:06:16.251206+00:00"
+    },
+    "south_africa": {
+      "file": "model_custom_south_africa.pkl",
+      "sha256": "e7abcf971e49b7c0e395f067be527fcc925e4f74578cd39eef5698855f32f012",
+      "mtime": "2026-06-15T20:04:53.020000+00:00"
+    },
+    "south_korea": {
+      "file": "model_custom_south_korea.pkl",
+      "sha256": "4d284935a041b1dfff7bb9a54fc73550b709758a18fc108fcc7c856e596d31b4",
+      "mtime": "2026-06-15T20:05:43.721902+00:00"
+    },
+    "spain": {
+      "file": "model_custom_spain.pkl",
+      "sha256": "55899dde8e1e2b10b7fd2e44a82ecebdb24265cf1884edaaf0fe7eaebf5465a6",
+      "mtime": "2026-06-15T20:04:34.805354+00:00"
+    },
+    "switzerland": {
+      "file": "model_custom_switzerland.pkl",
+      "sha256": "7c3e1d532fefe1a2b130ea014f673759179ff965f063953e487407e82064b687",
+      "mtime": "2026-06-15T20:05:11.199045+00:00"
+    },
+    "taiwan": {
+      "file": "model_custom_taiwan.pkl",
+      "sha256": "d3c3a2a97928f1d517a1f54e6db4c5947c1d7a91716295cdd74e204e8e2df2b7",
+      "mtime": "2026-06-15T20:06:26.770268+00:00"
+    },
+    "taiwan_nf": {
+      "file": "model_custom_taiwan_nf.pkl",
+      "sha256": "3040ac8dcefcc85172ecca2634d48326886a915f8ae6c7dc8cd4093bbfd1315f",
+      "mtime": "2026-06-10T19:31:19+00:00"
+    },
+    "thailand": {
+      "file": "model_custom_thailand.pkl",
+      "sha256": "78af1c018228f6f37443bbbeeabcd063ff6f6a5868ad7c4fe63578977aed8163",
+      "mtime": "2026-06-15T20:06:22.637505+00:00"
+    },
+    "thailand_nf": {
+      "file": "model_custom_thailand_nf.pkl",
+      "sha256": "e1303604535174d5b72a26b3a0fb9f42874e830224fb4204b6906c634eda1847",
+      "mtime": "2026-06-10T19:31:11+00:00"
+    },
+    "turkey": {
+      "file": "model_custom_turkey.pkl",
+      "sha256": "cbb9308515c18194f90d1eecf6746809d358e44466466a7166fc060850859481",
+      "mtime": "2026-06-15T20:03:32.412681+00:00"
+    },
+    "united_states": {
+      "file": "model_custom_united_states.pkl",
+      "sha256": "117976717f03b4dc2dfb93743ecc38471261df059c54832535927d197d1a80ae",
+      "mtime": "2026-06-15T20:06:52.256593+00:00"
+    },
+    "vietnam": {
+      "file": "model_custom_vietnam.pkl",
+      "sha256": "1dedde79220545b1ffafe1be68c84ae0b53b9595c3452d54b23302b2be284055",
+      "mtime": "2026-06-15T20:06:40.211859+00:00"
+    }
+  }
+}

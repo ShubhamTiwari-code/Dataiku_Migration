@@ -1,0 +1,26 @@
+{
+  "run_id": "BOOTSTRAP-20260924-204016",
+  "process_name": "bootstrap_snapshot_uat_and_pair_registry",
+  "started_at": "2026-09-24T20:40:17.896158+00:00",
+  "dry_run": false,
+  "automation_policy_rows": 175,
+  "automation_policy_markets_skipped_no_iso_mapping": [
+    "el_salvador",
+    "guatemala",
+    "panama",
+    "saudi_arabia",
+    "south_africa",
+    "south_korea",
+    "taiwan",
+    "vietnam"
+  ],
+  "resolved_pair_registry_rows": 22513,
+  "resolved_pair_registry_conflicts": 0,
+  "ingested_file_registry_rows": 0,
+  "known_limitations": [
+    "INGESTED_FILE_REGISTRY bootstrapped empty - no historical file hashes available.",
+    "RESOLVED_PAIR_REGISTRY legacy rows use decision_source=LEGACY_DSR_FALLBACK and sentinel source_report/source_file_hash values (data not retroactively available)."
+  ],
+  "finished_at": "2026-09-24T20:40:17.970954+00:00",
+  "status": "SUCCESS"
+}

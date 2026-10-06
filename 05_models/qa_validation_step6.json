@@ -1,0 +1,201 @@
+{
+  "validator_name": "Step6Validator",
+  "step_name": "Step 6: Model Evaluation & Strategy",
+  "timestamp": "2026-04-22T16:28:29.322356",
+  "overall_passed": true,
+  "counts_by_status": {
+    "PASSED": 8,
+    "FAILED": 0,
+    "WARNING": 0,
+    "SKIPPED": 0,
+    "ERROR": 0
+  },
+  "counts_by_severity": {
+    "CRITICAL": 3,
+    "HIGH": 1,
+    "MEDIUM": 2,
+    "LOW": 0,
+    "INFO": 2
+  },
+  "check_results": [
+    {
+      "check_name": "output_dir_exists",
+      "description": "Models output directory exists",
+      "status": "PASSED",
+      "severity": "CRITICAL",
+      "message": null,
+      "details": null,
+      "duration_seconds": 0.0
+    },
+    {
+      "check_name": "strategy_decision_exists",
+      "description": "Model strategy decision report exists",
+      "status": "PASSED",
+      "severity": "CRITICAL",
+      "message": null,
+      "details": {
+        "strategy_json_exists": true,
+        "decision_md_exists": true
+      },
+      "duration_seconds": 0.0
+    },
+    {
+      "check_name": "valid_strategy_decision",
+      "description": "Strategy decision is valid and well-formed",
+      "status": "PASSED",
+      "severity": "CRITICAL",
+      "message": null,
+      "details": {
+        "strategy_recommendation": "GLOBAL",
+        "justification": "CUSTOM performance gain (0.3%) is below threshold (3.0%). GLOBAL model recommended for simplicity.",
+        "f1_scores": {
+          "global": 0.9744970091504367,
+          "custom": 0.977398141590138,
+          "hybrid": 0.9753545128103213
+        }
+      },
+      "duration_seconds": 0.001003
+    },
+    {
+      "check_name": "f1_scores_above_threshold",
+      "description": "F1 scores are above minimum threshold (0.75)",
+      "status": "PASSED",
+      "severity": "HIGH",
+      "message": null,
+      "details": {
+        "f1_scores": {
+          "global": 0.9744970091504367,
+          "custom": 0.977398141590138,
+          "hybrid": 0.9753545128103213
+        },
+        "threshold": 0.75,
+        "below_threshold": {}
+      },
+      "duration_seconds": 0.0
+    },
+    {
+      "check_name": "calibration_quality",
+      "description": "Model calibration quality is acceptable (if enhanced eval enabled)",
+      "status": "PASSED",
+      "severity": "INFO",
+      "message": null,
+      "details": {
+        "message": "Enhanced evaluation not run, check skipped"
+      },
+      "duration_seconds": 0.0
+    },
+    {
+      "check_name": "tuning_results_valid",
+      "description": "Hyperparameter tuning results are valid (if tuning enabled)",
+      "status": "PASSED",
+      "severity": "INFO",
+      "message": null,
+      "details": {
+        "message": "Hyperparameter tuning not run, check skipped"
+      },
+      "duration_seconds": 0.0
+    },
+    {
+      "check_name": "required_files_present",
+      "description": "Required Step 6 files are present (optional files depend on flags)",
+      "status": "PASSED",
+      "severity": "MEDIUM",
+      "message": null,
+      "details": {
+        "required_files": {
+          "strategy_comparison": {
+            "expected": "model_strategy_comparison.json",
+            "exists": true
+          },
+          "decision_markdown": {
+            "expected": "MODEL_DECISION.md",
+            "exists": true
+          }
+        },
+        "optional_files": {
+          "enhanced_eval": {
+            "expected": "enhanced_evaluation.json",
+            "exists": false
+          },
+          "tuning_results": {
+            "expected": "hyperparameter_tuning_results.json",
+            "exists": false
+          },
+          "tuning_summary": {
+            "expected": "TUNING_SUMMARY.md",
+            "exists": false
+          },
+          "calibration_plot": {
+            "expected": "calibration_curve.png",
+            "exists": false
+          },
+          "pr_curve": {
+            "expected": "precision_recall_curve.png",
+            "exists": false
+          }
+        },
+        "required_summary": "2/2 required files found",
+        "optional_summary": "0/5 optional files found"
+      },
+      "duration_seconds": 0.000997
+    },
+    {
+      "check_name": "feature_importance_sanity",
+      "description": "Feature importance values are reasonable",
+      "status": "PASSED",
+      "severity": "MEDIUM",
+      "message": null,
+      "details": {
+        "low_importance_top10": [],
+        "zero_importance_features": [],
+        "country_dummies_in_top10": [],
+        "top_10_features": [
+          {
+            "feature": "matchResult_LastName__norm",
+            "importance": 0.1246
+          },
+          {
+            "feature": "matchResult_Name__norm",
+            "importance": 0.1178
+          },
+          {
+            "feature": "matchResult_LastName__bin__MISSING",
+            "importance": 0.0492
+          },
+          {
+            "feature": "Profile2_PhoneNumber__bin__MISSING",
+            "importance": 0.0324
+          },
+          {
+            "feature": "matchResult_Name__bin__MISSING",
+            "importance": 0.0311
+          },
+          {
+            "feature": "matchResult_Name__bin__60_80",
+            "importance": 0.029
+          },
+          {
+            "feature": "Profile2_MatchCategory__norm",
+            "importance": 0.029
+          },
+          {
+            "feature": "matchResult_AddressLine1__norm__MATCH",
+            "importance": 0.0288
+          },
+          {
+            "feature": "matchResult_LastName__bin__60_80",
+            "importance": 0.0268
+          },
+          {
+            "feature": "Profile1_MatchCategory__norm",
+            "importance": 0.024
+          }
+        ],
+        "error": null,
+        "zero_importance_count": 0
+      },
+      "duration_seconds": 0.0
+    }
+  ],
+  "metadata": {}
+}

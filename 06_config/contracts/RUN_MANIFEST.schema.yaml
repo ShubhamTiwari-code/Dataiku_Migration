@@ -1,0 +1,47 @@
+# Contract: RUN_MANIFEST
+# Produced by: every process (#1-#4), one manifest per run, written LAST after all other outputs
+#   (staged write + validate + atomic publish — see IMPLEMENTATION_MANUAL.md "Idempotency and Atomicity")
+# Storage: Managed Folder "run_manifests", path pattern run_manifests/{process_name}/{run_id}.json
+schema_version: 1
+
+logical_key: [run_id]
+
+nullability_policy: run_id, process_name, status, started_at are NOT NULL for every process.
+
+columns_common:
+  - run_id: string, not null — "{PROCESS_SHORT}-{YYYYMMDD}-{HHMMSS}", e.g. "PM-CANDIDATES-20260924-140000"
+  - process_name: string, not null — one of [refresh_pm_candidates, generate_blind_pm_reports, generate_predict_pm_reports, ingest_steward_decisions]
+  - started_at: timestamp, not null
+  - finished_at: timestamp, nullable (null while in-flight)
+  - status: string, not null, enum [RUNNING, SUCCESS, FAILED, DRY_RUN]
+  - dry_run: bool, not null, default false
+  - schema_hash: string, nullable — sha256 of the output schema actually written, for drift detection
+  - error_message: string, nullable
+
+columns_process_specific:
+  refresh_pm_candidates:
+    - source_type: string [snowflake_native|csv_manual_upload]
+    - source_identifier: string (table/query name, or folder path)
+    - row_count_raw: int
+    - row_count_valid: int
+    - row_count_invalid: int
+    - duplicates_removed: int
+    - markets: array<string>
+  generate_blind_pm_reports / generate_predict_pm_reports:
+    - markets_requested: array<string>
+    - markets_generated: array<string>
+    - markets_degraded_to_blind: array<string>   # predict-only: gate failures, with reason (see AUTOMATION_POLICY)
+    - n_resolved_filtered_total: int
+    - n_reports_written: int
+    - candidates_snapshot_run_id: string          # FK to the refresh_pm_candidates run consumed
+  ingest_steward_decisions:
+    - files_discovered: int
+    - files_already_processed: int
+    - files_processed: int
+    - new_resolved_pairs_written: int
+    - waterfall_run_id: string                    # FK to RECONCILIATION_WATERFALL
+
+migration_notes: >
+  This is intentionally a single JSON-per-run artifact (mirrors the existing
+  uat/manifest/{market}_uat_run_manifest.json pattern already used by the model-drift gate), not a
+  Parquet table, since manifests are read individually by run_id, not queried in bulk.

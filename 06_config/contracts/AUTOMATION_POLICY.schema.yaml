@@ -1,0 +1,88 @@
+# Contract: AUTOMATION_POLICY
+# Produced by: a READ-ONLY derivation (design/automation_policy_derivation.design.md) from
+#   models/paso_6_model_strategy_decision.json + uat/reports_decile/{slug}_decile_combined_analysis.csv
+# Consumed by: Process #3 (Generate Predict PM Reports) as the single source of truth for the reveal
+#   gate, and by the blind/predict routing improvement described in
+#   design/recipe_generate_blind_pm_reports.design.md
+# Storage: PairRegistry extension table automation_policy.parquet (see
+#   design/pair_registry_extension.design.md), OR Managed Folder "automation_policy" in Dataiku.
+schema_version: 1
+
+logical_key: [market_iso, score_bucket]
+
+nullability_policy: >
+  All identity/gating columns are NOT NULL. This contract NEVER computes a new approval — every row
+  must be traceable to an already-approved source_artifact (RULE: "No derives nuevas aprobaciones").
+
+upsert_policy: >
+  Full replace per derivation run (same staged-write + atomic-publish pattern as PM_CANDIDATES_CURRENT).
+  This is a derived/read-only cache, not a system of record — the routing JSON and decile CSVs remain
+  the actual sources of truth; if they disagree with this table, the table is regenerated, never
+  hand-edited.
+
+conflict_policy: >
+  If routing JSON and decile CSV disagree on approval status for the same (market_iso, score_bucket),
+  the row is marked approval_status = "AMBIGUOUS" and excluded from the reveal gate (fail-safe to blind),
+  never resolved by guessing.
+
+columns:
+  - name: market_iso
+    type: string
+    nullable: false
+  - name: market_slug
+    type: string
+    nullable: false
+  - name: score_bucket
+    type: string
+    nullable: false
+    description: One of the 10 canonical deciles ("0.0–0.1" .. "0.9–1.0"), matching uat_01/uat_08/uat_09.
+  - name: automation_action
+    type: string
+    nullable: false
+    enum: [AUTO_MERGE, AUTO_NO_MERGE, MANUAL]
+    derivation_note: >
+      Sourced from uat/reports_decile/*.csv's `automation_recommendation` column (the final
+      MANUAL/AUTO_MERGE/AUTO_NO_MERGE value) — NOT that CSV's own `automation_action` column,
+      which is a different, candidate-level field (e.g. AUTO_MERGE_CANDIDATE/NOT_APPLICABLE).
+      Naming collision between the two is coincidental; verified against real CSV headers.
+  - name: approval_status
+    type: string
+    nullable: false
+    enum: [APPROVED, NOT_APPROVED, AMBIGUOUS]
+  - name: model_strategy
+    type: string
+    nullable: false
+    enum: [global, custom, hybrid]
+    description: Copied verbatim from paso_6_model_strategy_decision.json for this market.
+  - name: model_filename
+    type: string
+    nullable: false
+  - name: model_sha256
+    type: string
+    nullable: false
+    description: SHA-256 recorded AT APPROVAL TIME — compared against the live model file's hash by the drift gate.
+  - name: routing_version
+    type: string
+    nullable: false
+    description: Version/timestamp of paso_6_model_strategy_decision.json used for this row.
+  - name: policy_version
+    type: string
+    nullable: false
+    description: Monotonically increasing identifier for this derivation run (see PM_AUTOMATION_POLICY_VERSION variable).
+  - name: approved_run_id
+    type: string
+    nullable: false
+    description: UAT run id that produced the original decile approval (from reports_decile CSV).
+  - name: effective_from
+    type: timestamp
+    nullable: false
+  - name: source_artifact
+    type: string
+    nullable: false
+    description: Path of the routing JSON and/or decile CSV this row was derived from (both, comma-separated, if used).
+
+migration_notes: >
+  v1 intentionally omits an "effective_to" column — policy rows are always fully replaced per
+  derivation run rather than versioned in place. If historical policy-over-time queries become a
+  requirement, add effective_to + a policy_version-partitioned history table (additive change, bump
+  schema_version).

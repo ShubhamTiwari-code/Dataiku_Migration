@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-03-31T18:50:52.640261",
+  "recommendation": "GLOBAL_MODEL",
+  "decisions": {
+    "argentina": {
+      "f1_global": 0.8328733770615705,
+      "f1_custom": 0.8698174072819307,
+      "delta": 0.03694403022036019,
+      "decision": "EVALUATE"
+    },
+    "brazil": {
+      "f1_global": 0.8883040935672515,
+      "f1_custom": 0.9066692438573424,
+      "delta": 0.018365150290090893,
+      "decision": "GLOBAL"
+    },
+    "mexico": {
+      "f1_global": 0.6310805641233311,
+      "f1_custom": 0.7428256185301363,
+      "delta": 0.11174505440680516,
+      "decision": "CUSTOM"
+    },
+    "germany": {
+      "f1_global": 0.9580322432299199,
+      "f1_custom": 0.9861755610180123,
+      "delta": 0.028143317788092426,
+      "decision": "GLOBAL"
+    },
+    "turkey": {
+      "f1_global": 0.9415241273814491,
+      "f1_custom": 0.9787234042553191,
+      "delta": 0.037199276873870035,
+      "decision": "EVALUATE"
+    },
+    "italy": {
+      "f1_global": 0.9946294950854538,
+      "f1_custom": 0.9969082679550947,
+      "delta": 0.002278772869640844,
+      "decision": "GLOBAL"
+    },
+    "spain": {
+      "f1_global": 0.9892526150532133,
+      "f1_custom": 0.9873303559485541,
+      "delta": -0.001922259104659152,
+      "decision": "GLOBAL"
+    }
+  }
+}

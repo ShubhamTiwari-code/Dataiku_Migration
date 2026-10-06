@@ -1,0 +1,109 @@
+# Contract: INGESTED_FILE_REGISTRY
+# Produced/consumed by: Process #4 (Ingest Steward Decisions) — see
+#   design/recipe_ingest_steward_decisions.design.md and design/pair_registry_extension.design.md
+# Storage: PairRegistry extension table ingested_file_registry.parquet
+schema_version: 1
+
+logical_key: [file_hash]
+
+nullability_policy: >
+  file_hash, file_name, market_iso, status are NOT NULL. Row-count/reconciliation columns default to 0,
+  never null, so waterfall arithmetic (sum checks) never has to special-case nulls.
+
+upsert_policy: >
+  Append-only for new file_hash values. If the same file_hash is seen again (identical content, possibly
+  renamed — e.g. SharePoint download suffix), the existing row is NOT duplicated: only processed_at and
+  ingestion_run_id are updated, and the run is short-circuited as "already processed" (see test scenario
+  #5: renamed file with same hash is not re-ingested).
+
+conflict_policy: >
+  N/A at the file level (files are immutable once hashed). Row-level conflicts are reported via
+  RESOLVED_PAIR_REGISTRY.record_status, not here.
+
+columns:
+  - name: file_name
+    type: string
+    nullable: false
+    description: Name as discovered this run (post reviewed_/SharePoint-suffix stripping).
+  - name: file_path
+    type: string
+    nullable: false
+  - name: file_hash
+    type: string
+    nullable: false
+    description: SHA-256 of the raw file bytes — the true identity key, independent of file_name.
+  - name: market_iso
+    type: string
+    nullable: false
+  - name: discovered_at
+    type: timestamp
+    nullable: false
+  - name: processed_at
+    type: timestamp
+    nullable: true
+    description: Null while a run is in-flight; set only after the registry + waterfall are both written (atomicity — see test scenario #21).
+  - name: raw_rows
+    type: int
+    nullable: false
+    default: 0
+  - name: rows_with_decision
+    type: int
+    nullable: false
+    default: 0
+  - name: automated_rows_excluded
+    type: int
+    nullable: false
+    default: 0
+  - name: invalid_decisions
+    type: int
+    nullable: false
+    default: 0
+    known_limitation: >
+      Always 0 in the current implementation — this count is only knowable at the (market,
+      file-group) grain, not per individual file, and is instead captured in
+      RECONCILIATION_WATERFALL.duplicates_within_file / .duplicates_across_files /
+      .already_resolved_pairs. Do not treat a 0 here as evidence no such rows existed for this
+      file specifically (IMPLEMENTATION_REVIEW finding F2, 2026-09-24).
+  - name: duplicates_within_file
+    type: int
+    nullable: false
+    default: 0
+    known_limitation: "Always 0 — see invalid_decisions known_limitation above (F2)."
+  - name: duplicates_across_files
+    type: int
+    nullable: false
+    default: 0
+    known_limitation: "Always 0 — see invalid_decisions known_limitation above (F2)."
+  - name: already_resolved
+    type: int
+    nullable: false
+    default: 0
+    known_limitation: "Always 0 — see invalid_decisions known_limitation above (F2)."
+  - name: new_resolved_pairs
+    type: int
+    nullable: false
+    default: 0
+    known_limitation: "Always 0 — see invalid_decisions known_limitation above (F2)."
+  - name: conflicting_decisions
+    type: int
+    nullable: false
+    default: 0
+    known_limitation: "Always 0 — see invalid_decisions known_limitation above (F2)."
+  - name: status
+    type: string
+    nullable: false
+    enum: [SUCCESS, FAILED, SKIPPED_ALREADY_PROCESSED]
+    description: >
+      MUST remain != SUCCESS until RESOLVED_PAIR_REGISTRY and the reconciliation waterfall have both
+      been durably written for this file (test scenario #21: failure mid-update never marks SUCCESS).
+  - name: error_message
+    type: string
+    nullable: true
+  - name: ingestion_run_id
+    type: string
+    nullable: false
+    description: FK to RUN_MANIFEST.run_id.
+
+migration_notes: >
+  Designed to subsume the hash-check that already exists inline inside uat_09 (KNOWN-DEVIATION context)
+  by giving it a queryable, auditable table instead of an ad-hoc in-memory/CSV check.

@@ -1,0 +1,541 @@
+{
+  "global_strategy": {
+    "model_type": "random_forest",
+    "f1_score": 0.8934829332788394,
+    "precision": 0.8942091132058593,
+    "recall": 0.8930323846908734,
+    "auc_roc": 0.9557573051224302,
+    "cv_mean": 0.8961101230001607,
+    "cv_std": 0.0005589168996820436,
+    "n_train": 167115,
+    "n_test": 41779,
+    "feature_importance": {
+      "matchResult_Name__norm": 0.28043244153918445,
+      "matchResult_Name__bin__MISSING": 0.13076715366670674,
+      "Profile1_MatchCategory__norm": 0.10208652008213863,
+      "Profile2_MatchCategory__norm": 0.09776510703272775,
+      "Profile2_MatchCategory__bin__0_20": 0.0713472194114662,
+      "matchResult_City__norm__MATCH": 0.07117426196990381,
+      "matchResult_LastName__norm": 0.05693014680929946,
+      "Profile2_MatchCategory__bin__80_100": 0.052348872451463996,
+      "Profile1_MatchCategory__bin__0_20": 0.03281465814953134,
+      "matchResult_City__norm__NO_MATCH": 0.020248324059481487,
+      "matchResult_StateProvince__norm__MATCH": 0.019235924879204138,
+      "matchResult_Name__bin__80_100": 0.01860070708529551,
+      "matchResult_LastName__bin__MISSING": 0.01773115874228676,
+      "matchResult_MatchCategory__norm": 0.010664573954666157,
+      "matchResult_Gender__norm__NA": 0.010246159172317502,
+      "matchResult_PhoneNumber__norm__NA": 0.004829429631521698,
+      "matchResult_Country__norm__MATCH": 0.0027773413628044085,
+      "matchResult_Suffix__norm__NA": 0.0
+    },
+    "decision_rules": [
+      {
+        "conditions": [
+          "matchResult_Name__norm <= 91.5000",
+          "Profile2_MatchCategory__bin__80_100 > 0.5000",
+          "Profile1_MatchCategory__bin__0_20 <= 0.5000",
+          "Profile1_MatchCategory__norm <= 89.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "matchResult_City__norm__MATCH > 0.5000",
+          "matchResult_LastName__norm <= inf",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "matchResult_Gender__norm__NA > 0.5000",
+          "matchResult_MatchCategory__norm <= 45.0000"
+        ],
+        "prediction_proba": 0.006250179078959348,
+        "support": 20397,
+        "support_pct": 0.1220536756126021,
+        "tree_id": 43,
+        "leaf_purity": 0.9937498209210407,
+        "features_used": [
+          "matchResult_Name__norm",
+          "Profile2_MatchCategory__bin__80_100",
+          "Profile1_MatchCategory__bin__0_20",
+          "Profile1_MatchCategory__norm",
+          "matchResult_StateProvince__norm__MATCH",
+          "matchResult_City__norm__MATCH",
+          "matchResult_LastName__norm",
+          "matchResult_PhoneNumber__norm__NA",
+          "matchResult_Gender__norm__NA",
+          "matchResult_MatchCategory__norm"
+        ]
+      },
+      {
+        "conditions": [
+          "Profile2_MatchCategory__norm > 87.5000",
+          "matchResult_Gender__norm__NA > 0.5000",
+          "matchResult_Name__norm <= 94.5000",
+          "Profile2_MatchCategory__norm <= 88.5000",
+          "matchResult_City__norm__NO_MATCH <= 0.5000",
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "Profile1_MatchCategory__bin__0_20 <= 0.5000",
+          "matchResult_Name__norm <= 93.5000"
+        ],
+        "prediction_proba": 0.006741911902992973,
+        "support": 19402,
+        "support_pct": 0.11609969182898004,
+        "tree_id": 21,
+        "leaf_purity": 0.9932580880970069,
+        "features_used": [
+          "Profile2_MatchCategory__norm",
+          "matchResult_Gender__norm__NA",
+          "matchResult_Name__norm",
+          "matchResult_City__norm__NO_MATCH",
+          "matchResult_Name__bin__MISSING",
+          "matchResult_StateProvince__norm__MATCH",
+          "matchResult_PhoneNumber__norm__NA",
+          "Profile1_MatchCategory__bin__0_20"
+        ]
+      },
+      {
+        "conditions": [
+          "matchResult_Name__norm <= 92.5000",
+          "Profile2_MatchCategory__bin__0_20 <= 0.5000",
+          "Profile1_MatchCategory__norm > 50.0000",
+          "Profile2_MatchCategory__norm <= 89.5000",
+          "matchResult_City__norm__MATCH > 0.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "Profile2_MatchCategory__norm <= 88.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "matchResult_Gender__norm__NA > 0.5000"
+        ],
+        "prediction_proba": 0.006718776094526792,
+        "support": 19312,
+        "support_pct": 0.115561140531969,
+        "tree_id": 27,
+        "leaf_purity": 0.9932812239054731,
+        "features_used": [
+          "matchResult_Name__norm",
+          "Profile2_MatchCategory__bin__0_20",
+          "Profile1_MatchCategory__norm",
+          "Profile2_MatchCategory__norm",
+          "matchResult_City__norm__MATCH",
+          "matchResult_StateProvince__norm__MATCH",
+          "matchResult_Name__bin__MISSING",
+          "matchResult_PhoneNumber__norm__NA",
+          "matchResult_Gender__norm__NA"
+        ]
+      },
+      {
+        "conditions": [
+          "Profile2_MatchCategory__bin__0_20 <= 0.5000",
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "Profile1_MatchCategory__norm > 50.0000",
+          "matchResult_Gender__norm__NA > 0.5000",
+          "Profile2_MatchCategory__norm <= 89.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "Profile2_MatchCategory__norm <= 88.5000",
+          "matchResult_Name__norm <= 94.5000",
+          "matchResult_Name__norm <= 92.5000",
+          "matchResult_City__norm__MATCH > 0.5000"
+        ],
+        "prediction_proba": 0.005436888779592584,
+        "support": 19137,
+        "support_pct": 0.11451395745444753,
+        "tree_id": 61,
+        "leaf_purity": 0.9945631112204074,
+        "features_used": [
+          "Profile2_MatchCategory__bin__0_20",
+          "matchResult_Name__bin__MISSING",
+          "Profile1_MatchCategory__norm",
+          "matchResult_Gender__norm__NA",
+          "Profile2_MatchCategory__norm",
+          "matchResult_StateProvince__norm__MATCH",
+          "matchResult_Name__norm",
+          "matchResult_City__norm__MATCH"
+        ]
+      },
+      {
+        "conditions": [
+          "Profile2_MatchCategory__norm > 87.5000",
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "matchResult_Name__norm <= 93.5000",
+          "matchResult_City__norm__MATCH > 0.5000",
+          "Profile1_MatchCategory__norm <= 89.5000",
+          "Profile1_MatchCategory__bin__0_20 <= 0.5000",
+          "matchResult_Gender__norm__NA > 0.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "matchResult_Name__norm <= 90.5000",
+          "Profile2_MatchCategory__norm <= 88.5000"
+        ],
+        "prediction_proba": 0.005007513293974123,
+        "support": 19004,
+        "support_pct": 0.11371809831553122,
+        "tree_id": 6,
+        "leaf_purity": 0.9949924867060258,
+        "features_used": [
+          "Profile2_MatchCategory__norm",
+          "matchResult_Name__bin__MISSING",
+          "matchResult_Name__norm",
+          "matchResult_City__norm__MATCH",
+          "Profile1_MatchCategory__norm",
+          "Profile1_MatchCategory__bin__0_20",
+          "matchResult_Gender__norm__NA",
+          "matchResult_StateProvince__norm__MATCH"
+        ]
+      },
+      {
+        "conditions": [
+          "matchResult_City__norm__NO_MATCH <= 0.5000",
+          "matchResult_Name__norm <= 91.5000",
+          "Profile1_MatchCategory__bin__0_20 <= 0.5000",
+          "Profile2_MatchCategory__bin__80_100 > 0.5000",
+          "matchResult_Name__norm <= inf",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "Profile1_MatchCategory__norm <= 89.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "Profile2_MatchCategory__norm <= 88.5000",
+          "matchResult_Gender__norm__NA > 0.5000"
+        ],
+        "prediction_proba": 0.006307411051978279,
+        "support": 19008,
+        "support_pct": 0.11374203392873171,
+        "tree_id": 28,
+        "leaf_purity": 0.9936925889480216,
+        "features_used": [
+          "matchResult_City__norm__NO_MATCH",
+          "matchResult_Name__norm",
+          "Profile1_MatchCategory__bin__0_20",
+          "Profile2_MatchCategory__bin__80_100",
+          "matchResult_StateProvince__norm__MATCH",
+          "Profile1_MatchCategory__norm",
+          "matchResult_PhoneNumber__norm__NA",
+          "Profile2_MatchCategory__norm",
+          "matchResult_Gender__norm__NA"
+        ]
+      },
+      {
+        "conditions": [
+          "Profile2_MatchCategory__norm > 87.5000",
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "Profile1_MatchCategory__bin__0_20 <= 0.5000",
+          "Profile2_MatchCategory__norm <= 89.5000",
+          "matchResult_Name__norm <= 94.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "matchResult_LastName__bin__MISSING <= 0.5000",
+          "matchResult_City__norm__NO_MATCH <= 0.5000",
+          "matchResult_MatchCategory__norm <= 45.0000"
+        ],
+        "prediction_proba": 0.007874163617970059,
+        "support": 17682,
+        "support_pct": 0.10580737815276905,
+        "tree_id": 64,
+        "leaf_purity": 0.99212583638203,
+        "features_used": [
+          "Profile2_MatchCategory__norm",
+          "matchResult_Name__bin__MISSING",
+          "Profile1_MatchCategory__bin__0_20",
+          "matchResult_Name__norm",
+          "matchResult_StateProvince__norm__MATCH",
+          "matchResult_PhoneNumber__norm__NA",
+          "matchResult_LastName__bin__MISSING",
+          "matchResult_City__norm__NO_MATCH",
+          "matchResult_MatchCategory__norm"
+        ]
+      },
+      {
+        "conditions": [
+          "matchResult_City__norm__NO_MATCH <= 0.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "Profile2_MatchCategory__bin__80_100 > 0.5000",
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "Profile2_MatchCategory__norm <= 89.5000",
+          "matchResult_MatchCategory__norm <= 45.0000",
+          "Profile1_MatchCategory__norm > 50.0000",
+          "matchResult_LastName__bin__MISSING <= 0.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "matchResult_LastName__norm <= 92.5000"
+        ],
+        "prediction_proba": 0.01091078967304552,
+        "support": 17719,
+        "support_pct": 0.1060287825748736,
+        "tree_id": 35,
+        "leaf_purity": 0.9890892103269544,
+        "features_used": [
+          "matchResult_City__norm__NO_MATCH",
+          "matchResult_StateProvince__norm__MATCH",
+          "Profile2_MatchCategory__bin__80_100",
+          "matchResult_Name__bin__MISSING",
+          "Profile2_MatchCategory__norm",
+          "matchResult_MatchCategory__norm",
+          "Profile1_MatchCategory__norm",
+          "matchResult_LastName__bin__MISSING",
+          "matchResult_PhoneNumber__norm__NA",
+          "matchResult_LastName__norm"
+        ]
+      },
+      {
+        "conditions": [
+          "matchResult_Name__bin__MISSING <= 0.5000",
+          "matchResult_City__norm__NO_MATCH <= 0.5000",
+          "Profile1_MatchCategory__norm > 50.0000",
+          "matchResult_LastName__bin__MISSING <= 0.5000",
+          "Profile2_MatchCategory__bin__80_100 > 0.5000",
+          "Profile2_MatchCategory__norm <= 89.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000",
+          "matchResult_Gender__norm__NA > 0.5000",
+          "matchResult_LastName__norm <= 92.5000",
+          "matchResult_Name__norm <= 94.5000"
+        ],
+        "prediction_proba": 0.00785984021271803,
+        "support": 17509,
+        "support_pct": 0.10477216288184783,
+        "tree_id": 19,
+        "leaf_purity": 0.992140159787282,
+        "features_used": [
+          "matchResult_Name__bin__MISSING",
+          "matchResult_City__norm__NO_MATCH",
+          "Profile1_MatchCategory__norm",
+          "matchResult_LastName__bin__MISSING",
+          "Profile2_MatchCategory__bin__80_100",
+          "Profile2_MatchCategory__norm",
+          "matchResult_PhoneNumber__norm__NA",
+          "matchResult_Gender__norm__NA",
+          "matchResult_LastName__norm",
+          "matchResult_Name__norm"
+        ]
+      },
+      {
+        "conditions": [
+          "matchResult_City__norm__NO_MATCH <= 0.5000",
+          "Profile1_MatchCategory__norm > 87.5000",
+          "Profile2_MatchCategory__bin__0_20 <= 0.5000",
+          "matchResult_LastName__norm <= 91.5000",
+          "matchResult_Name__norm <= 94.5000",
+          "matchResult_StateProvince__norm__MATCH > 0.5000",
+          "Profile1_MatchCategory__norm <= 89.5000",
+          "matchResult_MatchCategory__norm <= 45.0000",
+          "matchResult_LastName__norm <= 89.5000",
+          "matchResult_PhoneNumber__norm__NA > 0.5000"
+        ],
+        "prediction_proba": 0.005801122586040836,
+        "support": 17450,
+        "support_pct": 0.1044191125871406,
+        "tree_id": 76,
+        "leaf_purity": 0.9941988774139591,
+        "features_used": [
+          "matchResult_City__norm__NO_MATCH",
+          "Profile1_MatchCategory__norm",
+          "Profile2_MatchCategory__bin__0_20",
+          "matchResult_LastName__norm",
+          "matchResult_Name__norm",
+          "matchResult_StateProvince__norm__MATCH",
+          "matchResult_MatchCategory__norm",
+          "matchResult_PhoneNumber__norm__NA"
+        ]
+      }
+    ],
+    "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_global.pkl"
+  },
+  "custom_strategy": {
+    "model_type": "random_forest",
+    "countries_trained": 19,
+    "countries_skipped": 0,
+    "skipped_list": [],
+    "per_country": {
+      "ARGENTINA": {
+        "f1_score": 0.6908841626042315,
+        "precision": 0.7440139993768285,
+        "recall": 0.6765129682997119,
+        "n_train": 5552,
+        "n_test": 1388,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_argentina.pkl"
+      },
+      "BRAZIL": {
+        "f1_score": 0.9768279304515004,
+        "precision": 0.9776941804595298,
+        "recall": 0.9765807962529274,
+        "n_train": 44406,
+        "n_test": 11102,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_brazil.pkl"
+      },
+      "CANADA": {
+        "f1_score": 0.9788359788359788,
+        "precision": 0.9788359788359788,
+        "recall": 0.9788359788359788,
+        "n_train": 754,
+        "n_test": 189,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_canada.pkl"
+      },
+      "CHILE": {
+        "f1_score": 0.9893550221985831,
+        "precision": 0.9910112359550562,
+        "recall": 0.9887640449438202,
+        "n_train": 356,
+        "n_test": 89,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_chile.pkl"
+      },
+      "COLOMBIA": {
+        "f1_score": 0.9483608638885763,
+        "precision": 0.9558979255769989,
+        "recall": 0.945006599208095,
+        "n_train": 9088,
+        "n_test": 2273,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_colombia.pkl"
+      },
+      "COSTA_RICA": {
+        "f1_score": 0.9964454976303317,
+        "precision": 0.9964454976303317,
+        "recall": 0.9964454976303317,
+        "n_train": 6748,
+        "n_test": 1688,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_costa_rica.pkl"
+      },
+      "DOMINICAN_REPUBLIC": {
+        "f1_score": 0.9880250930398453,
+        "precision": 0.9880748996935124,
+        "recall": 0.9879898862199747,
+        "n_train": 6328,
+        "n_test": 1582,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_dominican_republic.pkl"
+      },
+      "EL_SALVADOR": {
+        "f1_score": 0.9720224464828334,
+        "precision": 0.9804204985937074,
+        "recall": 0.9641434262948207,
+        "n_train": 3008,
+        "n_test": 753,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_el_salvador.pkl"
+      },
+      "GUATEMALA": {
+        "f1_score": 0.9760993035852464,
+        "precision": 0.9836644942648592,
+        "recall": 0.9715,
+        "n_train": 8000,
+        "n_test": 2000,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_guatemala.pkl"
+      },
+      "HONDURAS": {
+        "f1_score": 0.9778306060726124,
+        "precision": 0.9799282811379393,
+        "recall": 0.9765957446808511,
+        "n_train": 1877,
+        "n_test": 470,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_honduras.pkl"
+      },
+      "HONG_KONG": {
+        "f1_score": 0.8512088649303632,
+        "precision": 0.866191390972974,
+        "recall": 0.8469860896445132,
+        "n_train": 2587,
+        "n_test": 647,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_hong_kong.pkl"
+      },
+      "MEXICO": {
+        "f1_score": 0.9531220216358935,
+        "precision": 0.9605651227153381,
+        "recall": 0.9492059490799093,
+        "n_train": 31732,
+        "n_test": 7934,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_mexico.pkl"
+      },
+      "NETHERLANDS": {
+        "f1_score": 0.7908326632905466,
+        "precision": 0.7906322407882223,
+        "recall": 0.7913669064748201,
+        "n_train": 1109,
+        "n_test": 278,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_netherlands.pkl"
+      },
+      "NICARAGUA": {
+        "f1_score": 0.990560040524062,
+        "precision": 0.9903798680962381,
+        "recall": 0.9909638554216867,
+        "n_train": 1328,
+        "n_test": 332,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_nicaragua.pkl"
+      },
+      "PAKISTAN": {
+        "f1_score": 0.8090084594567822,
+        "precision": 0.8132801956401905,
+        "recall": 0.8075170842824602,
+        "n_train": 21072,
+        "n_test": 5268,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_pakistan.pkl"
+      },
+      "PANAMA": {
+        "f1_score": 0.9817633607074022,
+        "precision": 0.9837731072790448,
+        "recall": 0.9804741980474198,
+        "n_train": 2866,
+        "n_test": 717,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_panama.pkl"
+      },
+      "SOUTH_KOREA": {
+        "f1_score": 0.9835006435006435,
+        "precision": 0.9842857142857142,
+        "recall": 0.984,
+        "n_train": 999,
+        "n_test": 250,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_south_korea.pkl"
+      },
+      "SWITZERLAND": {
+        "f1_score": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "n_train": 1481,
+        "n_test": 371,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_switzerland.pkl"
+      },
+      "UNITED_STATES": {
+        "f1_score": 0.6868657769893635,
+        "precision": 0.691339054230509,
+        "recall": 0.68327721661055,
+        "n_train": 17817,
+        "n_test": 4455,
+        "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_custom_united_states.pkl"
+      }
+    },
+    "aggregated_metrics": {
+      "f1_score": 0.9057501422759067,
+      "precision": 0.907141859825165,
+      "recall": 0.9051117599195903
+    }
+  },
+  "hybrid_strategy": {
+    "model_type": "random_forest",
+    "f1_score": 0.9076435433987742,
+    "precision": 0.9074913896073926,
+    "recall": 0.907968117953996,
+    "auc_roc": 0.9629037306942727,
+    "cv_mean": 0.910028084479206,
+    "cv_std": 0.0002776417516864178,
+    "n_train": 167115,
+    "n_test": 41779,
+    "n_country_features": 18,
+    "model_path": "C:\\Users\\SOTOMS01\\OneDrive - Pfizer\\Documents\\PM_GLOBAL_SOLUTION\\models\\model_hybrid.pkl"
+  },
+  "comparison": {
+    "f1_scores": {
+      "global": 0.8934829332788394,
+      "custom": 0.9057501422759067,
+      "hybrid": 0.9076435433987742
+    },
+    "deltas": {
+      "custom_vs_global": 0.012267208997067236,
+      "hybrid_vs_global": 0.014160610119934747
+    },
+    "best_by_f1": "HYBRID",
+    "recommendation": "HYBRID",
+    "justification": "HYBRID achieves best performance (F1=0.908) with single model. Recommended as best trade-off between performance and simplicity.",
+    "decision_framework": {
+      "threshold_low": 0.03,
+      "threshold_high": 0.05
+    }
+  },
+  "recommendation": {
+    "strategy": "HYBRID",
+    "justification": "HYBRID achieves best performance (F1=0.908) with single model. Recommended as best trade-off between performance and simplicity.",
+    "timestamp": "2026-06-11T11:32:20.435316"
+  },
+  "_metadata": {
+    "export_timestamp": "2026-06-11T11:32:20.439822",
+    "pipeline_version": "2.0",
+    "json_sha256": "42aaa95fae4014c2b2ae3a1760ae08e12568a562720e50955e845ce65396ff81"
+  }
+}

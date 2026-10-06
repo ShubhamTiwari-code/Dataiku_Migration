@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "countries_analyzed": [],
+    "n_countries": 0,
+    "generation_timestamp": "2026-06-11T11:31:13.825639"
+  },
+  "bivariate_summary": {
+    "total_features": 1055,
+    "force_include_count": 764,
+    "median_pvalue_lt_0.05": 702,
+    "top_features": [
+      {
+        "feature": "matchResult_LGCY_MDM_ID__norm__MATCH",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.4384292719756582,
+        "n_countries": 4,
+        "n_significant": 4,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "LLM_OUTPUT_EMAIL_MATCH_REASON__norm__token__OTHER",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.2684876707420253,
+        "n_countries": 3,
+        "n_significant": 3,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Name Match__norm__NA",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.6610994714563009,
+        "n_countries": 11,
+        "n_significant": 11,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Name Match__norm__NO_MATCH",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.4327206654502862,
+        "n_countries": 10,
+        "n_significant": 10,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "LLM_OUTPUT_ADDRESS_MATCH_REASON__bin__MISSING",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.4684692939060422,
+        "n_countries": 2,
+        "n_significant": 2,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Profile2_CROSSID__norm__token__OTHER",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.4552648225852558,
+        "n_countries": 3,
+        "n_significant": 3,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "PHONE CATEGORY__norm__token__OTHER",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.38462299960771484,
+        "n_countries": 8,
+        "n_significant": 8,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Profile1_Suffix__bin__MISSING",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.712707782179905,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "LLM_OUTPUT_ADDRESS_MATCH_REASON__bin__0_20",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.47008574845064965,
+        "n_countries": 2,
+        "n_significant": 2,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "ID_similarity_score__bin__MISSING",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.2377304195196134,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "ID_similarity_score__bin__0_20",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.2385866968130411,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "matchResult_Graduation_Certificate__norm__MATCH",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.36126283615434973,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "matchResult_Graduation_Certificate__norm__NA",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.36126283615434973,
+        "n_countries": 16,
+        "n_significant": 1,
+        "pct_significant": 6.25,
+        "force_include": true
+      },
+      {
+        "feature": "matchResult_ID_Utility__norm__NA",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.2385866968130411,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "matchResult_ID_Utility__norm__NO_MATCH",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.2385866968130411,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Name Match__norm__MATCH",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.5344359622580975,
+        "n_countries": 10,
+        "n_significant": 10,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "MATCHRESULT_NAME__bin__MISSING",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.36883681549885605,
+        "n_countries": 8,
+        "n_significant": 8,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Profile1_Suffix__bin__20_40",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.5101486142818371,
+        "n_countries": 1,
+        "n_significant": 1,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Email Match__norm__NA",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.37561728404192685,
+        "n_countries": 11,
+        "n_significant": 11,
+        "pct_significant": 100.0,
+        "force_include": true
+      },
+      {
+        "feature": "Email Category__norm__token__OTHER",
+        "median_pvalue": 0.0,
+        "median_cramers_v": 0.5607545643788842,
+        "n_countries": 7,
+        "n_significant": 7,
+        "pct_significant": 100.0,
+        "force_include": true
+      }
+    ]
+  },
+  "multivariate_summary": {
+    "n_high_correlations": 0,
+    "high_correlations_sample": [],
+    "pca_variance": {
+      "avg_variance_explained": [
+        0.2313231009746848,
+        0.10280009535593032,
+        0.0713675529013894,
+        0.055859194919814024,
+        0.046030619494518324,
+        0.03713048155335143,
+        0.031849851591512345,
+        0.027983282231591793,
+        0.02528581145511283,
+        0.023052531489445104
+      ],
+      "cumulative_variance": [
+        0.2313231009746848,
+        0.33412319633061516,
+        0.40549074923200457,
+        0.46134994415181857,
+        0.5073805636463369,
+        0.5445110451996883,
+        0.5763608967912006,
+        0.6043441790227924,
+        0.6296299904779052,
+        0.6526825219673503
+      ]
+    }
+  }
+}

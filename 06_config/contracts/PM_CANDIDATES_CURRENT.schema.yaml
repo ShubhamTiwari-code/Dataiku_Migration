@@ -1,0 +1,78 @@
+# Contract: PM_CANDIDATES_CURRENT
+# Produced by: Process #1 (Refresh PM Candidates) — see design/recipe_refresh_pm_candidates.design.md
+# Consumed by: Process #2 (Generate Blind PM Reports), Process #3 (Generate Predict PM Reports)
+# Storage: Managed Folder "pm_candidates_current", one Parquet snapshot per run
+#   (path pattern: pm_candidates_current/{run_id}/candidates.parquet, plus a "latest" pointer file)
+schema_version: 1
+
+logical_key: [market_iso, pair_id]
+
+nullability_policy: >
+  market_iso, market_slug, pair_id are NOT NULL (row rejected into the invalid bucket if any is null
+  or blank). All other columns MAY be null; downstream report generation must tolerate nulls.
+
+upsert_policy: >
+  This contract is NOT upserted — each run fully replaces the "current" snapshot (staged write +
+  validate + atomic rename/publish, see IMPLEMENTATION_MANUAL.md "Idempotency"). Historical snapshots
+  are retained under pm_candidates_current/{run_id}/ for audit; only the "latest" pointer changes.
+
+conflict_policy: >
+  Within one run, duplicate (market_iso, pair_id) rows are deduplicated deterministically (keep the
+  row from the most-recently-modified source file, tie-broken by larger file size — same policy as
+  uat_08's _find_extract EXTRACT_SELECTION_POLICY). Duplicates removed are counted in the manifest,
+  never silently dropped without a count.
+
+columns:
+  - name: market_iso
+    type: string
+    nullable: false
+    description: ISO-2 market code, upper-cased, normalized the same way as uat_08/_check_routing_json.
+  - name: market_slug
+    type: string
+    nullable: false
+    description: Canonical lowercase market slug matching models/paso_6_model_strategy_decision.json keys.
+  - name: pair_id
+    type: string
+    nullable: false
+    description: >
+      Canonical pair identifier, built with the same convention as uat_08._build_pair_id:
+      min(uri1, uri2) + "|" + max(uri1, uri2). MUST be symmetric (A|B == B|A) — see test scenario #1.
+  - name: entity_uri_left
+    type: string
+    nullable: true
+    description: Raw profile URI (pre-min/max ordering), kept for traceability and re-derivation.
+  - name: entity_uri_right
+    type: string
+    nullable: true
+  - name: source_extract_file
+    type: string
+    nullable: false
+    description: Filename of the Snowflake extract (or native dataset row-group id) this row came from.
+  - name: source_extract_mtime
+    type: timestamp
+    nullable: true
+    description: Modification time of the source file, used by the extract-selection policy.
+  - name: source_type
+    type: string
+    nullable: false
+    enum: [snowflake_native, csv_manual_upload]
+    description: >
+      "snowflake_native" when read from a Dataiku dataset connected to Snowflake (future connector);
+      "csv_manual_upload" when read from the snowflake_extracts/ Managed Folder (today's supported path).
+  - name: row_status
+    type: string
+    nullable: false
+    enum: [valid, invalid, duplicate]
+    description: Outcome of the D1 validation gate (missing pair_id components => invalid).
+  - name: snapshot_run_id
+    type: string
+    nullable: false
+    description: Foreign key to RUN_MANIFEST.run_id for this refresh run.
+  - name: snapshot_timestamp
+    type: timestamp
+    nullable: false
+
+migration_notes: >
+  v1 is the initial version. Any future column addition must be additive (new nullable columns only)
+  and bump schema_version; removals or type changes require a documented migration function mirroring
+  PairRegistry.schema_migrate()'s idempotent "add missing columns" pattern.

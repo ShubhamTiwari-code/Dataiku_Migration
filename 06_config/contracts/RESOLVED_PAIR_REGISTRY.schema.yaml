@@ -1,0 +1,104 @@
+# Contract: RESOLVED_PAIR_REGISTRY (Dataiku-facing view)
+# Produced by: src/lineage/pair_registry.py (design/pair_registry_extension.design.md) via a new
+#   method PairRegistry.get_resolved_pairs_dataiku_view(), NOT a separate materialized table —
+#   this schema documents the flattened projection that method must return / persist for DSS.
+# Consumed by: Process #2/#3 anti-join, Process #4 conflict detection
+# Storage: Managed Folder "resolved_pair_registry" (Parquet), OR read live from
+#   data/lineage/steward_events.parquet + data/lineage/pair_registry.parquet when running locally.
+schema_version: 1
+
+logical_key: [market_iso, pair_id]
+
+nullability_policy: >
+  market_iso, pair_id, normalized_decision, decision_source are NOT NULL. steward_decision (raw label)
+  may be null only for rows sourced from legacy pre-migration CSVs that never captured the raw text.
+
+upsert_policy: >
+  Upsert by logical key: incoming (market_iso, pair_id) already present keeps first_seen_at, updates
+  last_seen_at, and REPLACES normalized_decision/decision_source/reviewed_at only if the incoming
+  decision_source != "AUTOMATED" (an automated row must never overwrite or be recorded as a resolved
+  human decision — mirrors uat_09's unconditional AUTOMATED exclusion, RULE circularity guard).
+
+conflict_policy: >
+  If an existing resolved row already has a human decision (decision_source != AUTOMATED) and a new
+  incoming row for the same (market_iso, pair_id) has a DIFFERENT normalized_decision, do NOT silently
+  overwrite: set record_status = "conflict", keep the earliest decision as the active one, and emit a
+  row into RECONCILIATION_WATERFALL.conflicting_decisions. Resolution of conflicts is a manual/governance
+  action, never automatic.
+
+columns:
+  - name: market_iso
+    type: string
+    nullable: false
+  - name: market_slug
+    type: string
+    nullable: false
+  - name: pair_id
+    type: string
+    nullable: false
+  - name: steward_decision
+    type: string
+    nullable: true
+    description: Raw text as entered by the Data Steward (e.g. "Merge", "No Merge", "Suspect").
+  - name: normalized_decision
+    type: string
+    nullable: false
+    enum: ["0", "1"]
+    description: Canonical binary label via src/reporting/error_analysis.normalize_target (same as uat_09).
+  - name: decision_source
+    type: string
+    nullable: false
+    enum: [HUMAN, AUTOMATED, LEGACY_DSR_FALLBACK]
+    description: >
+      HUMAN = came from "MERGE / NO MERGE / SUSPECT" column; LEGACY_DSR_FALLBACK = came from
+      DSR_DECISION on a legacy file with no MERGE/NO MERGE/SUSPECT column; AUTOMATED rows must be
+      excluded before reaching this table (defense in depth: still tagged if one slips through).
+  - name: reviewed_at
+    type: timestamp
+    nullable: false
+  - name: source_report
+    type: string
+    nullable: false
+    description: Report filename (post rename-stripping, e.g. DE_20260924_1400_set01.xlsx).
+  - name: source_file_hash
+    type: string
+    nullable: false
+    description: SHA-256 of the source Excel file, FK to INGESTED_FILE_REGISTRY.file_hash.
+  - name: report_mode
+    type: string
+    nullable: false
+    enum: [blind, predict]
+  - name: model_version
+    type: string
+    nullable: true
+  - name: model_sha256
+    type: string
+    nullable: true
+  - name: score_bucket
+    type: string
+    nullable: true
+  - name: ingestion_run_id
+    type: string
+    nullable: false
+    description: FK to RUN_MANIFEST.run_id for the ingestion run that wrote this row.
+  - name: first_seen_at
+    type: timestamp
+    nullable: false
+  - name: last_seen_at
+    type: timestamp
+    nullable: false
+  - name: record_status
+    type: string
+    nullable: false
+    enum: [active, conflict, superseded]
+
+migration_notes: >
+  This view must stay backward-compatible with PairRegistry's existing steward_events.parquet schema
+  (pair_id, review_date, uat_run_id, steward_decision, steward_label, model_agreed) — the new method
+  adds a projection/join layer, it does not change the underlying event log schema.
+  CORRECTION (PRE_IMPLEMENTATION_AUDIT finding F1): decision_source is NOT derivable from the current
+  schema as-is. It requires one additive, nullable column on steward_events.parquet plus one optional
+  keyword parameter on record_steward_review() (default None, fully backward compatible with existing
+  callers) — see design/pair_registry_extension.design.md "Backward compatibility" section. Rows
+  written before this column existed are classified as LEGACY_DSR_FALLBACK, never HUMAN or AUTOMATED,
+  per RULE-026.
